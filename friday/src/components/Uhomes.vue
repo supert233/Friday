@@ -9,7 +9,7 @@
   				
   				<li @click="show()"><router-link to="/s_myorder">我的订单</router-link></li>
   				<li @click="show()"><router-link to="/s_myjifen">我的积分</router-link></li>
-  				<li><router-link to="/">积分订单</router-link></li>
+  				<li @click="show()"><router-link to="/s_jifenorder">积分订单</router-link></li>
   				<li><router-link to="/">我的钱包</router-link></li>
   				<li>会员资料 <span>></span></li>
   				<li><router-link to="/">个人资料</router-link></li>
@@ -55,12 +55,12 @@ export default {
 	 		this.bal=false
 	 	}
 	 },
-	 mounted:function(){
-	 	
-	 		bal:false
-
-	 	
-	 }
+//	 mounted:function(){
+//	 	
+//	 		bal:false
+//
+//	 	
+//	 }
 	
 }
 

@@ -4,6 +4,7 @@ import Users from '../../.././components/s_users'
 import S_myorder from '../../.././components/S_myorder'
 import Uhomes from '../../.././components/Uhomes'
 import S_myjifen from '../../.././components/S_myjifen'
+import S_jifenorder from '../../.././components/S_jifenorder'
 Vue.use(Router)
 
 export default new Router({
@@ -31,7 +32,13 @@ export default new Router({
 	      name: 's_myjifen',
 	      component: S_myjifen,
 	      children:[]
-	    }
+	    },
+	     {
+	      path: '/s_jifenorder',
+	      name: 's_jifenorder',
+	      component: S_jifenorder,
+	      children:[]
+	    },
       
       ]
     },
