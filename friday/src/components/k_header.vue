@@ -51,7 +51,7 @@
 				<div class="k_perCen">
 					购物车
 				</div>
-				<router-link to="/uhomes"><div class="k_perCen">
+				<router-link to="/users"><div class="k_perCen">
 					个人中心
 				</div>	</router-link>
 				<!--导航条-->

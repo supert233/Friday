@@ -5,6 +5,8 @@ import S_myorder from '../../.././components/S_myorder'
 import Uhomes from '../../.././components/Uhomes'
 import S_myjifen from '../../.././components/S_myjifen'
 import S_jifenorder from '../../.././components/S_jifenorder'
+import S_mywallet from '../../.././components/S_mywallet'
+import S_perMas from '../../.././components/S_perMas'
 Vue.use(Router)
 
 export default new Router({
@@ -37,6 +39,18 @@ export default new Router({
 	      path: '/s_jifenorder',
 	      name: 's_jifenorder',
 	      component: S_jifenorder,
+	      children:[]
+	    },
+	     {
+	      path: '/s_mywallet',
+	      name: 's_mywallet',
+	      component: S_mywallet,
+	      children:[]
+	    },
+	     {
+	      path: '/s_perMas',
+	      name: 's_perMas',
+	      component: S_perMas,
 	      children:[]
 	    },
       

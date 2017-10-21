@@ -10,9 +10,9 @@
   				<li @click="show()"><router-link to="/s_myorder">我的订单</router-link></li>
   				<li @click="show()"><router-link to="/s_myjifen">我的积分</router-link></li>
   				<li @click="show()"><router-link to="/s_jifenorder">积分订单</router-link></li>
-  				<li><router-link to="/">我的钱包</router-link></li>
+  				<li><router-link to="/s_mywallet">我的钱包</router-link></li>
   				<li>会员资料 <span>></span></li>
-  				<li><router-link to="/">个人资料</router-link></li>
+  				<li><router-link to="/s_perMas">个人资料</router-link></li>
   				<li><router-link to="/">地址管理</router-link></li>
   				<li><router-link to="/">我的收藏</router-link></li>
   				<li><router-link to="/">最近浏览</router-link></li>
@@ -24,9 +24,9 @@
   			<!--<a href="text.html">tiao</a>-->
   		</div>
   		<div class="s_uhome_r">
-  			<div v-if="bal">
+  			<!--<div v-if="bal">
 	  			<users></users>
-	  		</div>
+	  		</div>-->
 	  		<router-view></router-view>
   		</div>
     		<!--<users></users>-->

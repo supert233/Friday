@@ -1,7 +1,7 @@
 <template>
 	<div class="jifenorder">
-		<div class="s_jo_head"><span>积分订单</span></div>
-		<div class=""> 
+		<div class="s_jo_head"><span>积分订单</span> <span>当前积分:<span>240</span></span></div>
+		<div class="s_jo_bod"> 
 			<div  class="order_has">
 					<div class="s_hasHea">
 						<span>订单号: {{orderNum}}</span>
@@ -74,12 +74,23 @@
 		margin-left: 20px;
 		color: #333333;
 	}
+	.s_jo_head span:nth-child(2){
+		float: right;
+		margin-right: 20px;
+	}
+	.s_jo_head span span{
+		color: #F08200;
+	}
+	.s_jo_bod{
+		padding: 0 20px;
+		margin-top: 20px;
+	}
 	/*积分订单详情*/
 	.order_has{
 		width: 1044px;
 		margin-bottom: 20px;
 		border: 1px solid #e9e9e9;
-			padding: 0 20px;
+			
 	}
 	.s_hasHea{
 		width: 1044px;

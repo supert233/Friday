@@ -8,14 +8,14 @@
 </template>
 
 <script>
-	import Users from "../.././components/s_users"
-	import Uhomes from "../.././components/Uhomes"
+//	import Users from "../.././components/s_users"
+//	import Uhomes from "../.././components/Uhomes"
 	import Kheader from "../.././components/k_header"
 export default {
   name: 'apps',
  components:{
-	  	Users,
-	  	Uhomes,
+//	  	Users,
+//	  	Uhomes,
 	  	Kheader
 	  	
 	  }
