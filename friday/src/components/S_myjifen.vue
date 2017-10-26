@@ -81,13 +81,10 @@
 	}
 	.s_myj_mas .s_myjAll div{
 		width: 1044px;
-		
 		display: flex;
 		text-align: center;
-		/*align-items: center;*/
 		justify-content: space-around;
 		align-content: space-between;
-		/*align-content: space-around;*/
 	}
 	.s_myj_masH{
 		height: 46px;

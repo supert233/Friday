@@ -23,9 +23,13 @@ export default {
 </script>
 
 <style scoped>
-body,div,span,p,ul,li{
+body,div,span,p,ul,li,img,input,button,textarea{
 	margin: 0;
 	padding: 0;
+}
+img{
+	vertical-align: top;
+	font-size: 0;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

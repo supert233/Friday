@@ -3,13 +3,13 @@
 		<div class="s_myo_head"><span>我的订单</span></div>
 		<div class="s_myo_bod">
 			<ul class="s_myo_chos">
-				<li><span>全部</span> <span>|</span></li>
-				<li><span>待付款</span><span>|</span></li>
-				<li><span>代发货</span><span>|</span></li>
-				<li><span>待收货</span><span>|</span></li>
-				<li><span>待评价</span><span>|</span></li>
-				<li><span>退款/售后</span><span>|</span></li>
-				<li><span>已完成/关闭</span></li>
+				<li><span @click="change($event)" class="trs">全部</span> <span>|</span></li>
+				<li><span @click="change($event)" class="trs">待付款</span><span>|</span></li>
+				<li><span @click="change($event)" class="trs">代发货</span><span>|</span></li>
+				<li><span @click="change($event)" class="trs">待收货</span><span>|</span></li>
+				<li><span @click="change($event)" class="trs">待评价</span><span>|</span></li>
+				<li><span @click="change($event)" class="trs">退款/售后</span><span>|</span></li>
+				<li><span @click="change($event)" class="trs">已完成/关闭</span></li>
 				<li class="order_ret">订单回收站</li>
 			</ul>
 			
@@ -35,12 +35,12 @@
 						<span>云南邵通丑苹果</span>
 						<span>六个装</span>
 						<span>¥35.0 X 1</span>
-					</div>
+					</div>	
 					<div class="h_orderMone">
 						<span>店铺合计:¥ 105.0</span><span>(含运费:¥ 8.0)</span>
 					</div>
 					<div class="h_orderFun">
-						<span><router-link to="/">查看详情</router-link></span>
+						<span><router-link to="/s_orderDetail">查看详情</router-link></span>
 						<!--关闭-->
 						<button v-if="blOff">删除订单</button>
 						<!--待付款-->
@@ -87,7 +87,26 @@
 			}
 		},
 		methods:{
-			
+			change:function(e){
+			var _this = e.target;
+	 		var  s = _this.innerText;
+	 		var trs = document.getElementsByClassName("trs");
+	 		for (var i = 0; i < trs.length; i++) {
+	 			
+	 			if (s == trs[i].innerText) {
+	 				 _this.style.color="white";
+	 				 _this.style.backgroundColor="#F08200";
+	 			}
+	 			if(s != trs[i].innerText){
+	 				trs[i].style.color="#666666";
+	 				trs[i].style.backgroundColor="white";
+	 				trs[i].innerText=trs[i].innerText;
+
+	 				
+	 			}
+	 		}
+				
+			}
 		}
 		
 	}
@@ -230,9 +249,15 @@
 	}
 	/*订单具体信息*/
 	.h_hasMas{
-		display: flex;
-		
+		/*display: flex;*/
+		/*float: left;*/
+		width: 1044px;
 		align-items: center;
+	}
+	.h_hasMas:after{
+		content: "";
+            display: block;
+            clear: both;
 	}
 	.h_orderThing{
 		width: 697px;
@@ -241,6 +266,7 @@
 		display: flex;
 		align-items: center;
 		font-size: 14px;
+		float: left;
 	}
 	.h_hasMas .h_orderThing img{
 		width: 78px;
@@ -258,11 +284,13 @@
 	}
 	
 	/*店铺合计*/
-	.h_orderMone{
+	.h_hasMas .h_orderMone{
 		text-align: center;
 		width:208px ;
+		float: left;
 		border-right: 1px solid #e9e9e9;
 		height: 100%;
+		padding: 3% 0;
 	}
 	.h_orderMone span{
 		width:208px ;
@@ -275,6 +303,8 @@
 		width: 136px;
 		font-size: 14px;
 		text-align: center;
+		float: right;
+		padding-top: 3%;
 	}
 	.h_orderFun span{
 		display: block;

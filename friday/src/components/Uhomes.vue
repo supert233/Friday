@@ -5,23 +5,24 @@
   			<div class="Person_center"><span>个人中心</span></div>
   			<ul class="s_uhome_le_list">
   				<li>交易管理  <span>></span>   </li>
-  				<li class="i_home" @click="show()"><router-link to="/users">我的账户</router-link></li>
+  				<li  @click="show()" ><router-link to="/users">我的账户</router-link></li>
   				
-  				<li @click="show()"><router-link to="/s_myorder">我的订单</router-link></li>
-  				<li @click="show()"><router-link to="/s_myjifen">我的积分</router-link></li>
+  				<li  @click="show()" ><router-link to="/s_myorder">我的订单</router-link></li>
+  				<li  @click="show()"><router-link to="/s_myjifen" >我的积分</router-link></li>
   				<li @click="show()"><router-link to="/s_jifenorder">积分订单</router-link></li>
   				<li><router-link to="/s_mywallet">我的钱包</router-link></li>
   				<li>会员资料 <span>></span></li>
   				<li><router-link to="/s_perMas">个人资料</router-link></li>
-  				<li><router-link to="/">地址管理</router-link></li>
-  				<li><router-link to="/">我的收藏</router-link></li>
-  				<li><router-link to="/">最近浏览</router-link></li>
-  				<li><router-link to="/">修改密码</router-link></li>
+  				<li><router-link to="/s_addressContr">地址管理</router-link></li>
+  				<li><router-link to="/s_mycollection">我的收藏</router-link></li>
+  				<li><router-link to="/s_latewatch">最近浏览</router-link></li>
+  				<li><router-link to="/s_changePassword">修改密码</router-link></li>
   				<li>站内信 <span>></span></li>
-  				<li><router-link to="/">我的消息</router-link></li>
-  				<li><router-link to="/">信息反馈</router-link></li>
+  				<li><router-link to="/s_massage">我的消息</router-link></li>
+  				<li><router-link to="/s_massageReturn">信息反馈</router-link></li>
   			</ul>
   			<!--<a href="text.html">tiao</a>-->
+  			
   		</div>
   		<div class="s_uhome_r">
   			<!--<div v-if="bal">
@@ -45,22 +46,36 @@ export default {
 	 },
 	 data(){
 	 	return{
-	 		bal:true
+	 		
 	 		
 	 		
 	 	}
 	 },
+	
 	 methods:{
-	 	show:function(){
-	 		this.bal=false
+	 	show:function(e){
+//	 		var _this = e.target;
+//	 		var  s = _this.innerText;
+//	 		var trs = document.getElementsByClassName("trs");
+//	 		for (var i = 0; i < trs.length; i++) {
+//	 			
+//	 			if (s == trs[i].innerText) {
+//	 				 _this.style.color="#55964a";
+//	 				 _this.style.textDecoration="underline";
+//	 			}
+//	 			if(s != trs[i].innerText){
+//	 				trs[i].style.color="#999999";
+//	 				trs[i].style.textDecoration="none";
+//	 				trs[i].innerText=trs[i].innerText;
+//
+//	 				console.log(trs[i]);
+//	 			}
+//	 		}
+
 	 	}
 	 },
-//	 mounted:function(){
-//	 	
-//	 		bal:false
-//
-//	 	
-//	 }
+	 
+
 	
 }
 
@@ -75,11 +90,14 @@ a{
 	text-decoration: none;
 	color: #a0a0a0;
 }
-/*.router-link-active {
-    text-decoration: none;
- 
-}*/
+
+
 a:hover{
+	color: #55964a;
+    text-decoration: underline;
+}
+
+.router-link-active{
 	color: #55964a;
     text-decoration: underline;
 }

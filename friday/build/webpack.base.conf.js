@@ -24,6 +24,7 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  
   module: {
     rules: [
       {

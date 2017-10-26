@@ -17,10 +17,10 @@
 							<span>¥35.0 X 1</span>
 						</div>
 						<div class="h_orderMone">
-							<span>店铺合计:¥ 105.0</span><span>(含运费:¥ 8.0)</span>
+							<span>50积分</span>
 						</div>
 						<div class="h_orderFun">
-							<span><router-link to="/">查看详情</router-link></span>
+							<span><router-link to="/s_jifenDetail">查看详情</router-link></span>
 							<!--关闭-->
 							<button >删除订单</button>
 							
