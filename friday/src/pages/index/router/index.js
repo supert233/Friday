@@ -21,11 +21,49 @@ import S_jifenDetail from '../../.././components/S_jifenDetail'
 import S_orderEvaluation from '../../.././components/S_orderEvaluation'
 
 
+import IndexCon from '../../.././components/indexCon'
+import Kinte from '../../.././components/k_inte'
+import Local from "../../.././components/local"
+import Five from "../../.././components/five"
+import Protect from "../../.././components/protect"
+
+
+
 Vue.use(Router)
 
 export default new Router({
 	 mode: 'history',
-  routes: [
+  routes: [{
+      path: '/index.html',
+      name: 'vall',
+      component: IndexCon
+    },
+    {
+      path: '/',
+      name: 'vall',
+      component: IndexCon
+    },
+    {
+    	path:'/kinte',
+    	name:'k_inte',
+    	component: Kinte
+    },
+    {
+    	path:'/local',
+    	name:'local',
+    	component: Local
+    },
+    {
+    	path:'/five',
+    	name:'five',
+    	component: Five
+    },
+    {
+    	path:'/protect',
+    	name:'protect',
+    	component: Protect
+    },
+  
    {
       path: '/uhomes',
       name: 'uhomes',

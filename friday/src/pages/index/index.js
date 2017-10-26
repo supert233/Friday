@@ -7,7 +7,9 @@ import Test from "../.././components/s_users"
 import Distpicker from 'v-distpicker'
 import Vuex from 'vuex'
 import store from '../.././vuex/store'
+import  VueResource  from 'vue-resource'
 
+Vue.use(VueResource) 
 Vue.component('v-distpicker', Distpicker)
 Vue.use(Vuex)
 Vue.config.productionTip = false

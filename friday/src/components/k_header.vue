@@ -136,11 +136,14 @@
 //		   },
 		methods:{
 			btn:function(){
-				
+				this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"123456489"},{emulateJSON:true}).then(function(res){
+					console.log(res.body);
+				})
 			},
 			//全部分类 显示隐藏
 			show:function(){
 				this.fir = true;
+				
 			},
 			show1:function(){
 				this.fir = true;
@@ -193,9 +196,9 @@
 				this.arrs=this.arr9
 			},
 			
+			
 		}
 	}
-
 	
 	
 </script>
@@ -315,7 +318,7 @@ body,div,img,input,ul,li,span,img{
 		margin-top: 22px;
 		height: 50px;								
 	}
-	.k_nav li{
+	.k_nav a li,.k_nav a,.k_nav li{
 		/*width: 150px;*/
 		height: 50px;
 		line-height: 50px;
@@ -379,7 +382,12 @@ body,div,img,input,ul,li,span,img{
 		left: 168px;
 		/*display: none;*/
 	}	
-	
+	/*头部选择后样式*/
+	.router-link-active{
+		background-color: #f08200;
+		border-color:#f08200 ;	
+		
+	}
 	
 	/*选择城市*/
 	.k_city{

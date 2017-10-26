@@ -119,6 +119,7 @@ a:hover{
 	width: 168px;
 	border: 1px solid #e7e7e7;
 	float: left;
+	margin-bottom: 40px;
 }
 .s_uhome .s_uhome_le .Person_center{
 	width: 100%;
@@ -165,6 +166,13 @@ a:hover{
 	/*border: 1px solid #e7e7e7;*/
 	/*margin-left:24px ;*/
 	float: right;
+	margin-bottom: 40px;
 }
+/*清浮动*/
+.s_uhome:after{
+	content: "";
+            display: block;
+            clear: both;
 
+}
 </style>
