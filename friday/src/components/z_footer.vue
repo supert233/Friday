@@ -6,7 +6,7 @@
 					<a href="protect"><li><img src="../pages/index/assets/z_safe.jpg"/><span>优先保障</span></li></a>
 					<li>	<img src="../pages/index/assets/z_control.jpg"/><span>全程监控</span></li>
 					<li><img src="../pages/index/assets/z_preference.jpg"/><span>礼拜五特惠</span></li>
-					<li><img src="../pages/index/assets/z_supply.jpg"/><span>基地直供</span></li>
+					<router-link to="/z_dirSupply"><li><img src="../pages/index/assets/z_supply.jpg"/><span>基地直供</span></li></router-link>
 					<li class="special"><img src="../pages/index/assets/z_arrive.jpg"/><span>准时送达</span></li>
 				</ul>
 			</div>

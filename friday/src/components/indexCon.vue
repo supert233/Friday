@@ -25,7 +25,7 @@
 			</div>
 			<!--开始时间下面的轮播图-->
 			<div class="v_binBan">
-				<img src="../pages/index/assets/special.png" alt="" />
+				<router-link to="/zaddshop"><img src="../pages/index/assets/special.png" alt="" /></router-link>
 				<img src="../pages/index/assets/special2.png" alt="" />
 				<img src="../pages/index/assets/special3.png" alt="" />
 				<img src="../pages/index/assets/special4.png" alt="" />
@@ -106,6 +106,10 @@
 				<img src="../pages/index/assets/special12.jpg" alt="" />
 			</div>
 			
+		</div>
+		<!--规格框-->
+		<div>
+			<router-view></router-view>
 		</div>
 	</div>
 </template>

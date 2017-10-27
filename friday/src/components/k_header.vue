@@ -21,17 +21,19 @@
 					</div>
 					<!--登录信息-->
 					<ul class="k_msgOn">
-						<li>
+						<li><a href="/join.html">登录</a></li>
+						<li><a href="/join.html">注册</a></li>
+						<!--<li>
 							您好 ,
-							<!--后台传入的登录名-->
+							
 							<div class="login">17701269859</div>
 							<span>退出</span>
+						</li>-->
+						<li>
+							<span><router-link to="/s_myorder">我的订单</router-link></span>
 						</li>
 						<li>
-							<span>我的订单</span>
-						</li>
-						<li>
-							<span>我的消息</span>
+							<span><router-link to="/s_massage">我的消息</router-link></span>
 						</li>
 						<li>
 							<span>我是商家</span>
@@ -136,9 +138,12 @@
 //		   },
 		methods:{
 			btn:function(){
-				this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"123456489"},{emulateJSON:true}).then(function(res){
+				this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"",type:"add",},{emulateJSON:true}).then(function(res){
 					console.log(res.body);
 				})
+//				this.$http.get('/api/user/addUser',{params:{username:"456",password:561,massage:"",type:"add"}}).then(function(res){
+//					console.log(res.body);
+//				}) 
 			},
 			//全部分类 显示隐藏
 			show:function(){
@@ -197,6 +202,15 @@
 			},
 			
 			
+		},
+		mounted(){
+//			setTimeout(this.btn(),0)
+//			this.btn();
+//			function(){
+//				this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"123456489"},{emulateJSON:true}).then(function(res){
+//					console.log(res.body);
+//				})
+//			}
 		}
 	}
 	
@@ -454,3 +468,5 @@ body,div,img,input,ul,li,span,img{
 	}
 	
 </style>
+
+

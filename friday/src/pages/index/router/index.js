@@ -19,7 +19,7 @@ import S_rechargeCard from '../../.././components/S_rechargeCard'
 import S_orderDetail from '../../.././components/S_orderDetail'
 import S_jifenDetail from '../../.././components/S_jifenDetail'
 import S_orderEvaluation from '../../.././components/S_orderEvaluation'
-
+import Register from "../../.././components/register"
 
 import IndexCon from '../../.././components/indexCon'
 import Kinte from '../../.././components/k_inte'
@@ -27,6 +27,16 @@ import Local from "../../.././components/local"
 import Five from "../../.././components/five"
 import Protect from "../../.././components/protect"
 
+import Zdetail from "../../.././components/z_detail"
+import Zaddshop from "../../.././components/z_addshoppingcar"
+import Z_confirmOrder from "../../.././components/z_confirmOrder" //商品订单
+import Z_dirSupply from "../../.././components/z_dirSupply"//基地直供
+import Z_fivePre from "../../.././components/z_fivePre"//礼拜五特惠
+import Z_onTime from "../../.././components/z_onTime"//准时送达
+import Z_payMethod from "../../.././components/z_payMethod"//提交订单付款方式
+import Z_score from "../../.././components/z_score"//积分兑换
+import Z_searchNull from "../../.././components/z_searchNull"//搜索商品不存在
+import z_wholeControl from "../../.././components/z_wholeControl"//全程监控
 
 
 Vue.use(Router)
@@ -36,7 +46,30 @@ export default new Router({
   routes: [{
       path: '/index.html',
       name: 'vall',
-      component: IndexCon
+      component: IndexCon,
+      children:[
+	      	 {
+	      path: '/zaddshop',
+	      name: 'Zaddshop',
+	      component: Zaddshop
+	    },
+      ]
+    },
+    {
+	    	path:'/z_dirSupply',
+	    	name:'Z_dirSupply',
+	    	component: Z_dirSupply
+    },
+   
+     {
+	    	path:'/Zdetail',
+	    	name:'z_detail',
+	    	component: Zdetail
+    },
+     {
+      path: '/join.html',
+      name: 'register',
+      component: Register,
     },
     {
       path: '/',

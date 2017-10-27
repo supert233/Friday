@@ -2,7 +2,8 @@
 var sqlMap = {
     // 用户
     user: {
-        add: 'insert into text(id, username, password,massage) values (0, ?, ?, ?)',
+        add: 'insert into user(userid, username, password,sex,birthday,userphone,mymoney,myscore) values (0, ?, ?, ?, ?,?,?,?)',
+        
         
     }
 }

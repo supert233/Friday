@@ -20,16 +20,32 @@ var jsonWrite = function(res, ret) {
 };
 
 // 增加用户接口
-router.post('/addUser', (req, res) => {
+router.post('/addUser', function(req,res) {
     var sql = $sql.user.add;
     var params = req.body;
+    var act = params.type;
     console.log(params);
-    conn.query(sql, [params.username, params.password,params.massage], function(err, result) {
+//  switch (act){
+//  	case "add":
+//  		conn.query(sql,[params.username, params.password,params.massage],function(err,result){
+//  			if (err) {
+//  				console.log(err)
+//  			}
+//  			if (result) {
+//  				res.end(result)
+//  			}
+//  		});
+// 
+//  		break;
+//  	default:
+//  		break;
+//  };
+    conn.query(sql, [params.username, params.password,params.sex,params.birthday,params.userphone,params.mymoney,params.myscore], function(err, result) {
         if (err) {
-            console.log(err);
+            console.log(err);                                                                                 
         }
         if (result) {
-            res.send('{"err":1}')
+            res.send(result)
         }
     })
 });
