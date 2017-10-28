@@ -321,7 +321,7 @@
 	}
 	.z_num input {
 		width: 46px;
-		height: 24px;
+		height: 26px;
 		text-align: center;
 		font-size: 15px;
 		float: left;

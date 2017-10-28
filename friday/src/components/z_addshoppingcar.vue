@@ -151,7 +151,7 @@
 		text-align: center;
 		font-size: 18px;
 		width:70px;
-		line-height:32px;
+		line-height:34px;
 		border:1px solid #999;
 		outline: none;
 		/*清除*/
