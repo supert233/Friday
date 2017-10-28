@@ -30,14 +30,14 @@ import Protect from "../../.././components/protect"
 import Zdetail from "../../.././components/z_detail"
 import Zaddshop from "../../.././components/z_addshoppingcar"
 import Z_confirmOrder from "../../.././components/z_confirmOrder" //商品订单
-import Z_dirSupply from "../../.././components/z_dirSupply"//基地直供
-import Z_fivePre from "../../.././components/z_fivePre"//礼拜五特惠
-import Z_onTime from "../../.././components/z_onTime"//准时送达
+import Z_dirSupply from "../../.././components/z_dirSupply"
+import Z_fivePre from "../../.././components/z_fivePre"
+import Z_onTime from "../../.././components/z_onTime"
 import Z_payMethod from "../../.././components/z_payMethod"//提交订单付款方式
 import Z_score from "../../.././components/z_score"//积分兑换
 import Z_searchNull from "../../.././components/z_searchNull"//搜索商品不存在
-import z_wholeControl from "../../.././components/z_wholeControl"//全程监控
-
+import z_wholeControl from "../../.././components/z_wholeControl"
+import K_twoweb from "../../.././components/k_twoweb"//二级页面
 
 Vue.use(Router)
 
@@ -55,9 +55,29 @@ export default new Router({
 	    },
       ]
     },
+     {
+	    	path:'/z_score',
+	    	name:'z_score',
+	    	component: Z_score
+    },
     {
 	    	path:'/z_dirSupply',
 	    	name:'Z_dirSupply',
+	    	component: Z_fivePre
+    },
+    {
+	    	path:'/z_wholeControl',
+	    	name:'z_wholeControl',
+	    	component: z_wholeControl
+    },
+    {
+	    	path:'/z_onTime',
+	    	name:'z_onTime',
+	    	component: Z_onTime
+    },
+     {
+	    	path:'/z_fivePre',
+	    	name:'z_fivePre',
 	    	component: Z_dirSupply
     },
    

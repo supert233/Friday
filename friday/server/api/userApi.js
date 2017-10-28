@@ -22,8 +22,10 @@ var jsonWrite = function(res, ret) {
 // 增加用户接口
 router.post('/addUser', function(req,res) {
     var sql = $sql.user.add;
+    var finduser = $sql.user.finduser;
     var params = req.body;
     var act = params.type;
+    var usernames = params.username;
     console.log(params);
 //  switch (act){
 //  	case "add":
@@ -40,14 +42,22 @@ router.post('/addUser', function(req,res) {
 //  	default:
 //  		break;
 //  };
-    conn.query(sql, [params.username, params.password,params.sex,params.birthday,params.userphone,params.mymoney,params.myscore], function(err, result) {
+	conn.query('SELECT * FROM user WHERE username='+usernames+'', function(err, rows,result) {
         if (err) {
             console.log(err);                                                                                 
         }
         if (result) {
-            res.send(result)
+            res.send('{"err":"用户已存在"}')
         }
     })
+//  conn.query(sql, [params.username, params.password,params.sex,params.birthday,params.userphone,params.mymoney,params.myscore], function(err, result) {
+//      if (err) {
+//          console.log(err);                                                                                 
+//      }
+//      if (result) {
+//          res.send('{"err":1}')
+//      }
+//  })
 });
 
 module.exports = router;

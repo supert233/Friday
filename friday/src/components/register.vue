@@ -53,6 +53,7 @@
 			<div class="k_regInp" v-if="regBol">
 				<input class="p_regInp" type="text" placeholder="请输入手机号" v-model="username"/>
 				<span v-if="truePhone"  style="margin-left:40px; color: red;font-size: 12px; position: absolute;top: 80px;">请输入正确的手机号</span>
+				<span v-if="userIn"   style="margin-left:40px; color: red;font-size: 12px; position: absolute;top: 80px;">此用户已存在,请尝试登录</span>
 				<input class="p_regInp" type="text" placeholder="请输入密码( 6-20 位号码字符 )"  v-model="password1" @focus="onfous"/>
 				<span v-if="truepas"  style="margin-left:40px; color: red;font-size: 12px; position: absolute;top: 160px;">密码不能为空</span>
 				<input class="p_regInp" type="text" placeholder="请再次输入密码确认"  v-model="password2"/>
@@ -60,6 +61,7 @@
 				<div class="p_verify">
 					<input class="p_code" type="text" placeholder="验证码" />
 					<img src="../pages/join/assets/yanzheng.png" alt="" />
+					<span style="font-size: 12px;display: block;height: 42px; line-height: 42px; color: #f08200;">    看不清,换一张</span>
 					<span v-if="varcode" class="varcode">请输入正确的验证码</span>
 				</div>
 				<div class="p_phone">
@@ -72,8 +74,8 @@
 						<input type="checkbox" name="" id="" value=""  class="agree" checked="checked" @change="agree()"/> 我已阅读并同意《礼拜五用户协议》
 					</label>
 				</div>
-				<button class="p_btn1" @click="add()">注册</button>
-				<button class="p_btn2">登录</button>
+				<button id="p_btn1" @click="add()">注册</button>
+				<button id="p_btn2" @click="jump">登录</button>
 			</div>
 
 			<!--登录.内容-->
@@ -82,6 +84,7 @@
 				<div class="p_verify">
 					<input class="p_code" type="text" placeholder="验证码" />
 					<img src="../pages/join/assets/yanzheng.png" alt="" />
+					<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
 				</div>
 				<div class="p_phone">
 					<input class="p_regInp" type="text" placeholder="手机验证码" />
@@ -91,8 +94,8 @@
 				<div class="p_user">
 					<input type="checkbox" name="" id="" value="" /> 自动登录
 				</div>
-				<button @click="regbol()" class="p_btn1">注册</button>
-				<button class="p_btn2">登录</button>
+				<button @click="regbol()" class="p_btn3">注册</button>
+				<button class="p_btn4" @click="tray">登录</button>
 				<div class="p_msg">
 					<span>提示 : 未注册用户将直接注册成为礼拜五用户</span>
 					<div class="p_join">
@@ -105,6 +108,9 @@
 				</div>
 			</div>
 		</div>
+		<div class="ontieMas" v-if="notes">
+			{{note}}
+		</div>
 	</div>
 </template>
 
@@ -115,6 +121,7 @@
 		name:"register",
 		data(){
 			return {
+				notes:false,
 				cityBol:false,
 				regBol:false,
 				enterBol:true,
@@ -122,6 +129,8 @@
 				truePhone:false,
 				truepas:false,
 				varcode:false,
+				userIn:false,
+				note:"asrdasfa",
 				username:"",
 				password1:"",
 				password2:"",
@@ -130,6 +139,15 @@
 			}
 		},
 		methods:{
+			tray:function(){
+//				this.notes=true;
+//				setTimeout(function(){
+//					console.log(this.notes);
+//								this.notes=false;
+//								this.regBol=false;
+//								this.enterBol=true;
+//				},1000);
+			},
 			city1:function(){
 				this.cityBol = true;
 				
@@ -202,51 +220,51 @@
 						myscore:""
 						
 					},{emulateJSON:true}).then(function(res){
-						console.log(res.body)
+						
+						var keys=res.body.err;
+						console.log(keys);
+						if (keys == 1) {
+//							this.notes=true;
+//							this.notes=false;
+							this.regBol=false;
+							this.enterBol=true;
+							this.userIn=false
+
+						}else{
+							this.userIn=true
+						}
 					})
 						
 					
 				}
-//				if (verTrue != "xqcr"){
-//					this.varcode=true
-//				} else{
-//					this.varcode=false;
-//					
-//				}
-//				this.$http.post('/api/user/addUser',{
-//					username:"第一次",
-//					password:561,
-//					massage:"",
-//					type:"add",
-//				},{emulateJSON:true}).then(function(res){
-//					console.log(res.body);
-//				})
 			},
 			//验证是否同意条款
 			agree:function(){
 				var agree = document.getElementsByClassName("agree")[0];
-				var pbtn1 = document.getElementsByClassName("p_btn1")[0];
-				var pbtn2 = document.getElementsByClassName("p_btn2")[0];
+				var pbtn1 = document.getElementById("p_btn1");
+				var pbtn2 = document.getElementById("p_btn2");
 				var c = agree.checked;
 				
 				if (!c) {
 					pbtn1.disabled=true;
+					pbtn2.disabled=true;
 					pbtn1.style.backgroundColor="rgba(239,181,112,0.8)"
 					pbtn2.style.backgroundColor="rgba(113,150,106,0.8)"
 				}else{
 					pbtn1.disabled=false;
+					pbtn2.disabled=false;
 					pbtn1.style.backgroundColor="#f08200"
 					pbtn2.style.backgroundColor="#498e3d"
 				}
 				
+			},
+			//注册页面的登录按钮
+			jump:function(){
+				this.regBol=false;
+				this.enterBol=true;
 			}
 		
-		},
-//		mounted(){
-//			setInterval(this.agreez(),10)
-//			
-//		}
-		
+		},	
 	}
 </script>
 
@@ -417,8 +435,8 @@
 		font-size: 13px;
 	}
 	
-	.p_btn1,
-	.p_btn2 {
+	#p_btn1,
+	#p_btn2,.p_btn3,.p_btn4 {
 		width: 134px;
 		height: 46px;
 		border: 0 solid;
@@ -428,12 +446,12 @@
 		outline: none;
 	}
 	
-	.p_btn1 {
+	#p_btn1,.p_btn3{
 		margin-left: 40px;
 		background-color: #f08200;
 	}
 	
-	.p_btn2 {
+	#p_btn2,.p_btn4 {
 		margin-left: 42px;
 		background-color: #498e3d;
 	}
@@ -526,5 +544,19 @@
 		position: absolute;
 		top: 310px;
 		left: 40px;
+	}
+	/*提示信息*/
+	.ontieMas{
+		width: 150px;
+		height: 60px;
+		font-size: 18px;
+		color: white;
+		background-color: rgba(10,10,10,0.5);
+		border-radius: 10px;
+		text-align: center;
+		line-height: 60px;
+		position: absolute;
+		top: 40%;
+		right: 23%;
 	}
 </style>

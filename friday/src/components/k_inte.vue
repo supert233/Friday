@@ -6,7 +6,7 @@
 			<ul>
 				<li>
 					<img src="../pages/index/assets/init1.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init2.jpg" alt="" />

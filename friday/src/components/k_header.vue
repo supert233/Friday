@@ -138,9 +138,9 @@
 //		   },
 		methods:{
 			btn:function(){
-				this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"",type:"add",},{emulateJSON:true}).then(function(res){
-					console.log(res.body);
-				})
+//				this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"",type:"add",},{emulateJSON:true}).then(function(res){
+//					console.log(res.body);
+//				})
 //				this.$http.get('/api/user/addUser',{params:{username:"456",password:561,massage:"",type:"add"}}).then(function(res){
 //					console.log(res.body);
 //				}) 

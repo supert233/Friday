@@ -4,10 +4,10 @@
 			<div class="z_footTop">
 				<ul>
 					<a href="protect"><li><img src="../pages/index/assets/z_safe.jpg"/><span>优先保障</span></li></a>
-					<li>	<img src="../pages/index/assets/z_control.jpg"/><span>全程监控</span></li>
-					<li><img src="../pages/index/assets/z_preference.jpg"/><span>礼拜五特惠</span></li>
-					<router-link to="/z_dirSupply"><li><img src="../pages/index/assets/z_supply.jpg"/><span>基地直供</span></li></router-link>
-					<li class="special"><img src="../pages/index/assets/z_arrive.jpg"/><span>准时送达</span></li>
+					<li>	<router-link to="/z_wholeControl"><img src="../pages/index/assets/z_control.jpg"/><span>全程监控</span></router-link></li>
+					<li><router-link to="/z_fivePre"><img src="../pages/index/assets/z_preference.jpg"/><span>礼拜五特惠</span></router-link></li>
+					<li><router-link to="/z_dirSupply"><img src="../pages/index/assets/z_supply.jpg"/><span>基地直供</span></router-link></li>
+					<li class="special"><router-link to="/z_onTime"><img src="../pages/index/assets/z_arrive.jpg"/><span>准时送达</span></router-link></li>
 				</ul>
 			</div>
 			<!--底部中间部分-->

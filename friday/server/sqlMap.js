@@ -2,7 +2,8 @@
 var sqlMap = {
     // 用户
     user: {
-        add: 'insert into user(userid, username, password,sex,birthday,userphone,mymoney,myscore) values (0, ?, ?, ?, ?,?,?,?)',
+        add: 'insert into user( username, password,sex,birthday,userphone,mymoney,myscore) values ( ?, ?, ?, ?,?,?,?)',
+        finduser:'SELECT * FROM user WHERE username=?',
         
         
     }
