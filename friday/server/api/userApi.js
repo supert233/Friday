@@ -43,21 +43,22 @@ router.post('/addUser', function(req,res) {
 //  		break;
 //  };
 	conn.query('SELECT * FROM user WHERE username='+usernames+'', function(err, rows,result) {
-        if (err) {
-            console.log(err);                                                                                 
-        }
-        if (result) {
-            res.send('{"err":"用户已存在"}')
+        if (rows == "") {
+            console.log(err); 
+                conn.query(sql, [params.username, params.password,params.sex,params.birthday,params.userphone,params.mymoney,params.myscore], function(err, result) {
+			      if (err) {
+			          console.log(err);                                                                                 
+			      }
+			      if (result) {
+			          res.send('{"err":1}')
+			      }
+			  })
+        }else {
+	        res.send('{"err":"用户已存在"}');
+           
         }
     })
-//  conn.query(sql, [params.username, params.password,params.sex,params.birthday,params.userphone,params.mymoney,params.myscore], function(err, result) {
-//      if (err) {
-//          console.log(err);                                                                                 
-//      }
-//      if (result) {
-//          res.send('{"err":1}')
-//      }
-//  })
+
 });
 
 module.exports = router;

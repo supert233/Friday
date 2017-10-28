@@ -53,7 +53,7 @@
 			<div class="k_regInp" v-if="regBol">
 				<input class="p_regInp" type="text" placeholder="请输入手机号" v-model="username"/>
 				<span v-if="truePhone"  style="margin-left:40px; color: red;font-size: 12px; position: absolute;top: 80px;">请输入正确的手机号</span>
-				<span v-if="userIn"   style="margin-left:40px; color: red;font-size: 12px; position: absolute;top: 80px;">此用户已存在,请尝试登录</span>
+				<span v-if="userIn"   style="margin-left:200px; color: red;font-size: 12px; position: absolute;top: 80px;">此用户已存在,请尝试登录</span>
 				<input class="p_regInp" type="text" placeholder="请输入密码( 6-20 位号码字符 )"  v-model="password1" @focus="onfous"/>
 				<span v-if="truepas"  style="margin-left:40px; color: red;font-size: 12px; position: absolute;top: 160px;">密码不能为空</span>
 				<input class="p_regInp" type="text" placeholder="请再次输入密码确认"  v-model="password2"/>
@@ -95,7 +95,7 @@
 					<input type="checkbox" name="" id="" value="" /> 自动登录
 				</div>
 				<button @click="regbol()" class="p_btn3">注册</button>
-				<button class="p_btn4" @click="tray">登录</button>
+				<button class="p_btn4" @click="longIn">登录</button>
 				<div class="p_msg">
 					<span>提示 : 未注册用户将直接注册成为礼拜五用户</span>
 					<div class="p_join">
