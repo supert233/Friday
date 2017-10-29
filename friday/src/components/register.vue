@@ -80,31 +80,70 @@
 
 			<!--登录.内容-->
 			<div class="k_regInp" v-if="enterBol">
-				<input class="p_regInp" type="text" placeholder="请输入手机号" />
-				<div class="p_verify">
-					<input class="p_code" type="text" placeholder="验证码" />
-					<img src="../pages/join/assets/yanzheng.png" alt="" />
-					<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
-				</div>
-				<div class="p_phone">
-					<input class="p_regInp" type="text" placeholder="手机验证码" />
-					<button>获取验证码</button>
-				</div>
-				<!--用户协议-->
-				<div class="p_user">
-					<input type="checkbox" name="" id="" value="" /> 自动登录
-				</div>
-				<button @click="regbol()" class="p_btn3">注册</button>
-				<button class="p_btn4" @click="longIn">登录</button>
-				<div class="p_msg">
-					<span>提示 : 未注册用户将直接注册成为礼拜五用户</span>
-					<div class="p_join">
-						--------------------- 用合作网站登录 -----------------
+				<!--手机验证码登录-->
+				<div class="p_on">
+					<div class="k_regTop">
+						<span>登录</span>
+						<img src="../pages/index/assets/icon5.png" alt="" />
+						<span @click="onBol1()">账号密码登录</span>
 					</div>
-					<!--微信-->
-					<div class="p_weixin"></div>
-					<!--qq-->
-					<div class="p_qq"></div>
+					<input class="p_regInp" type="text" placeholder="请输入手机号" />
+					<div class="p_verify">
+						<input class="p_code" type="text" placeholder="验证码" />
+						<img src="../pages/join/assets/yanzheng.png" alt="" />
+						<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
+					</div>
+					<div class="p_phone">
+						<input class="p_regInp" type="text" placeholder="手机验证码" />
+						<button>获取验证码</button>
+					</div>
+					<!--用户协议-->
+					<div class="p_user">
+						<input type="checkbox" name="" id="" value="" /> 自动登录
+					</div>
+					<button @click="regbol()" class="p_btn3">注册</button>
+					<button class="p_btn4" @click="longIn">登录</button>
+					<div class="p_msg">
+						<span>提示 : 未注册用户将直接注册成为礼拜五用户</span>
+						<div class="p_join">
+							--------------------- 用合作网站登录 -----------------
+						</div>
+						<!--微信-->
+						<div class="p_weixin"></div>
+						<!--qq-->
+						<div class="p_qq"></div>
+					</div>
+				</div>
+				<!--账号密码登录-->
+				<div class="p_off">
+					<div class="k_regTop">
+						<span>登录</span>
+						<img src="../pages/index/assets/icon5.png" alt="" />
+						<span @click="onBol2()">手机验证登录</span>
+					</div>
+					<input class="p_regInp" type="text" placeholder="请输入手机号" />
+					<input class="p_pass" type="text" placeholder="密码" />
+					<div class="p_verify">
+						<input class="p_code" type="text" placeholder="验证码" />
+						<img src="../pages/join/assets/yanzheng.png" alt="" />
+						<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
+					</div>					
+					<!--用户协议-->
+					<div class="p_user p_onCon">
+						<input type="checkbox" name="" id="" value="" /> 自动登录
+					</div>
+					<button @click="regbol()" class="p_btn3">注册</button>
+					<button class="p_btn4" @click="longIn">登录</button>
+					<div class="p_msg">
+						<span>提示 : 未注册用户将直接注册成为礼拜五用户</span>
+						<div class="p_join">
+							--------------------- 用合作网站登录 -----------------
+						</div>
+						<!--微信-->
+						<div class="p_weixin"></div>
+						<!--qq-->
+						<div class="p_qq"></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -135,7 +174,7 @@
 				password1:"",
 				password2:"",
 				cityVal:"河南省郑州市",
-				regCon:"会员登录"
+				regCon:"会员登录",				
 			}
 		},
 		methods:{
@@ -262,8 +301,20 @@
 			jump:function(){
 				this.regBol=false;
 				this.enterBol=true;
+			},
+			//手机验证登录切换
+			onBol1:function(){
+				var Kon = document.getElementsByClassName("p_on")[0];
+				var Koff = document.getElementsByClassName("p_off")[0];
+				Kon.style.display = "none";
+				Koff.style.display = "block";
+			},
+			onBol2:function(){
+				var Kon = document.getElementsByClassName("p_on")[0];
+				var Koff = document.getElementsByClassName("p_off")[0];
+				Kon.style.display = "block";
+				Koff.style.display = "none";
 			}
-		
 		},	
 	}
 </script>
@@ -350,7 +401,9 @@
 		height: 130px;
 		margin: 0 auto;
 	}
-	
+	.p_off{
+		display: none;
+	}
 	.k_register img {
 		margin-top: 24px;
 		float: left;
@@ -387,8 +440,34 @@
 	.k_regCon .p_regInp {
 		width: 306px;
 		height: 42px;
+		margin: 12px 40px 0;
+		font-size: 14px;
+	}
+	.p_pass{
+		width: 306px;
+		height: 42px;
 		margin: 30px 40px 0;
 		font-size: 14px;
+	}
+	.k_regTop{
+		width: 306px;
+		margin: 30px auto 0;
+	}
+	.k_regTop span:nth-child(1){
+		color: #666666;
+		font-size: 22px;
+	}
+	.k_regTop span:nth-child(3){
+		color: #498e3d;
+		font-size: 16px;
+		float: right;
+		display: inline-block;
+		margin-top: 6px;
+	}
+	.k_regTop img{
+		float: right;
+		margin-top: 8px;
+		margin-left: 4;
 	}
 	
 	.k_regCon .p_verify {
@@ -411,13 +490,14 @@
 	}
 	
 	.p_phone {
+		margin-top: 22px;
 		position: relative;
 	}
 	
 	.p_phone button {
 		position: absolute;
 		right: 44px;
-		top: 41px;
+		top: 19px;
 		width: 100px;
 		height: 32px;
 		border: 0 solid;
@@ -434,7 +514,9 @@
 		color: #666666;
 		font-size: 13px;
 	}
-	
+	.p_onCon{
+		margin-top: 19px;
+	}
 	#p_btn1,
 	#p_btn2,.p_btn3,.p_btn4 {
 		width: 134px;
@@ -469,8 +551,8 @@
 	.p_msg .p_join {
 		font-size: 15px;
 		color: #666666;
-		margin-top: 15px;
-		margin-bottom: 18px;
+		margin-top: 10px;
+		margin-bottom: 14px;
 	}
 	
 	.p_msg .p_weixin {
