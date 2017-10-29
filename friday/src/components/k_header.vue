@@ -162,7 +162,7 @@
 				this.sec = true;
 				
 				var soncla = document.getElementsByClassName("k_sonCla");
-//				var index = 0;
+
 	
 			},
 			hide:function(){
@@ -175,7 +175,7 @@
 			city2:function(){
 				//获取value值
 				var selects = document.getElementsByTagName("select");
-//				console.log(selects[1].value);
+
 				this.cityVal = selects[0].value + selects[1].value
 				this.cityBol = false;
 			},
@@ -215,7 +215,7 @@
 			
 		},
 		mounted(){
-//			alert(4);
+
 			var userphone = localStorage.getItem("userphone");
 			console.log(userphone);
 			if (userphone == null) {
@@ -227,13 +227,7 @@
 				this.$store.commit('newAuthor',userphone);
 			}
 			
-//			setTimeout(this.btn(),0)
-//			this.btn();
-//			function(){
-//				this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"123456489"},{emulateJSON:true}).then(function(res){
-//					console.log(res.body);
-//				})
-//			}
+
 		}
 	}
 	

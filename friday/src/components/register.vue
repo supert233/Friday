@@ -4,7 +4,7 @@
 		<div v-if="cityBol" class="k_city">
 				<div class="K_cityBox">
 					<span>建议您的收货地址: </span>
-					<div class="K_cityVal">河南省郑州市</div>0
+					<div class="K_cityVal">河南省郑州市</div>
 					<v-distpicker province="河南省" city="郑州市" area="中原区"></v-distpicker>
 					<button @click="city2">保存</button>
 				</div>
@@ -61,10 +61,10 @@
 				<div class="p_verify">
 					<input class="p_code" type="text" placeholder="验证码" />
 					<img src="../pages/join/assets/yanzheng.png" alt="" />
-					<span style="font-size: 14px;display: block;height: 42px; line-height: 42px; color: #f08200;">看不清换一张</span>
+					<span style="font-size: 12px;display: block;height: 42px; line-height: 42px; color: #f08200;">    看不清,换一张</span>
 					<span v-if="varcode" class="varcode">请输入正确的验证码</span>
 				</div>
-				<div class="p_phone">
+				<div class="s_phone">
 					<input class="p_regInp" type="text" placeholder="手机验证码" />
 					<button>获取验证码</button>
 				</div>
@@ -80,32 +80,70 @@
 
 			<!--登录.内容-->
 			<div class="k_regInp" v-if="enterBol">
-				<input class="p_regInp" type="text" placeholder="请输入手机号" v-model="username" />
-				<div class="p_verify">
-					<input class="p_code" type="text" placeholder="验证码" />
-					<img src="../pages/join/assets/yanzheng.png" alt="" />
-					<span style="font-size: 14px;display: block;height: 42px; line-height: 42px;color: #f08200;">看不清换一张</span>
-				</div>
-				<div class="p_phone">
-					<input class="p_regInp" type="text" placeholder="手机验证码" />
-					<button>获取验证码</button>
-				</div>
-				<!--用户协议-->
-				<div class="p_user">
-					<input type="checkbox" name="" id="" value="" /> 自动登录
-					
-				</div>
-				<button @click="regbol()" class="p_btn3">注册</button>
-				<button class="p_btn4" @click="longIn">登录</button>
-				<div class="p_msg">
-					<span>提示 : 未注册用户将直接注册成为礼拜五用户</span>
-					<div class="p_join">
-						--------------------- 用合作网站登录 -----------------
+				<!--手机验证码登录-->
+				<div class="p_on" v-if="pon">
+					<div class="k_regTop">
+						<span>登录</span>
+						<img src="../pages/index/assets/icon5.png" alt="" />
+						<span @click="onBol1()">账号密码登录</span>
 					</div>
-					<!--微信-->
-					<div class="p_weixin"></div>
-					<!--qq-->
-					<div class="p_qq"></div>
+					<input class="v_regInp" type="text" placeholder="请输入手机号" v-model="username"/>
+					<div class="p_verify">
+						<input class="p_code" type="text" placeholder="验证码" />
+						<img src="../pages/join/assets/yanzheng.png" alt="" />
+						<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
+					</div>
+					<div class="p_phone">
+						<input class="v_regInp" type="text" placeholder="手机验证码" />
+						<button>获取验证码</button>
+					</div>
+					<!--用户协议-->
+					<div class="p_user">
+						<input type="checkbox" name="" id="" value="" /> 自动登录
+					</div>
+					<button @click="regbol()" class="p_btn3">注册</button>
+					<button class="p_btn4" @click="longIn()">登录</button>
+					<div class="p_msg">
+						<span>提示 : 未注册用户将直接注册成为礼拜五用户</span>
+						<div class="p_join">
+							--------------------- 用合作网站登录 -----------------
+						</div>
+						<!--微信-->
+						<div class="p_weixin"></div>
+						<!--qq-->
+						<div class="p_qq"></div>
+					</div>
+				</div>
+				<!--账号密码登录-->
+				<div class="p_off" v-if="poff">
+					<div class="k_regTop">
+						<span>登录</span>
+						<img src="../pages/index/assets/icon5.png" alt="" />
+						<span @click="onBol2()">手机验证登录</span>
+					</div>
+					<input class="v_regInp" type="text" placeholder="请输入手机号" v-model="username"/>
+					<input class="p_pass" type="text" placeholder="密码" />
+					<div class="p_verify">
+						<input class="p_code" type="text" placeholder="验证码" />
+						<img src="../pages/join/assets/yanzheng.png" alt="" />
+						<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
+					</div>					
+					<!--用户协议-->
+					<div class="p_user p_onCon">
+						<input type="checkbox" name="" id="" value="" /> 自动登录
+					</div>
+					<button @click="regbol()" class="p_btn3">注册</button>
+					<button class="p_btn4" @click="longIn()">登录</button>
+					<div class="p_msg">
+						<span>提示 : 未注册用户将直接注册成为礼拜五用户</span>
+						<div class="p_join">
+							--------------------- 用合作网站登录 -----------------
+						</div>
+						<!--微信-->
+						<div class="p_weixin"></div>
+						<!--qq-->
+						<div class="p_qq"></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -131,19 +169,21 @@
 				truepas:false,
 				varcode:false,
 				userIn:false,
+				poff:false,
+				pon:true,
 				note:"asrdasfa",
 				username:"",
 				password1:"",
 				password2:"",
 				cityVal:"河南省郑州市",
-				regCon:"会员登录"
+				regCon:"会员登录",				
 			}
 		},
 		computed: {
 		      author () {
 		        return this.$store.state.author
 		      }
-		   },
+		  },
 		methods:{
 			tray:function(){
 //				this.notes=true;
@@ -161,7 +201,7 @@
 			city2:function(){
 				//获取value值
 				var selects = document.getElementsByTagName("select");
-
+//				console.log(selects[1].value);
 				this.cityVal = selects[0].value + selects[1].value;
 				this.cityBol = false;
 			},
@@ -235,7 +275,6 @@
 							this.regBol=false;
 							this.enterBol=true;
 							this.userIn=false
-
 						}else{
 							this.userIn=true
 						}
@@ -245,12 +284,11 @@
 				}
 			},
 			//登录
-			longIn:function(){
-				this.$store.commit('newAuthor',this.username);
-//				this.$store.state.author = this.username;
-				
-				localStorage.setItem("userphone",this.username)
-			},
+			longIn: function() {
+				this.$store.commit('newAuthor', this.username);
+				//this.$store.state.author = this.username;
+				localStorage.setItem("userphone", this.username)
+			},	
 			//验证是否同意条款
 			agree:function(){
 				var agree = document.getElementsByClassName("agree")[0];
@@ -276,8 +314,24 @@
 				this.regBol=false;
 				this.enterBol=true;
 				this.regCon="会员登录"
+			},
+			//手机验证登录切换
+			onBol1:function(){
+				this.pon=false;
+				this.poff=true;
+//				var Kon = document.getElementsByClassName("p_on")[0];
+//				var Koff = document.getElementsByClassName("p_off")[0];
+//				Kon.style.display = "none";
+//				Koff.style.display = "block";
+			},
+			onBol2:function(){
+				this.pon=true;
+				this.poff=false;
+//				var Kon = document.getElementsByClassName("p_on")[0];
+//				var Koff = document.getElementsByClassName("p_off")[0];
+//				Kon.style.display = "block";
+//				Koff.style.display = "none";
 			}
-		
 		},	
 	}
 </script>
@@ -364,7 +418,9 @@
 		height: 130px;
 		margin: 0 auto;
 	}
-	
+	/*.p_off{
+		display: none;
+	}*/
 	.k_register img {
 		margin-top: 24px;
 		float: left;
@@ -398,11 +454,44 @@
 		position: relative;
 	}
 	
-	.k_regCon .p_regInp {
+	.k_regCon .v_regInp {
+		width: 306px;
+		height: 42px;
+		margin: 12px 40px 0;
+		font-size: 14px;
+	}
+	/*注册时的 输入框样式*/
+	.k_regInp .p_regInp{
 		width: 306px;
 		height: 42px;
 		margin: 30px 40px 0;
 		font-size: 14px;
+	}
+	.p_pass{
+		width: 306px;
+		height: 42px;
+		margin: 30px 40px 0;
+		font-size: 14px;
+	}
+	.k_regTop{
+		width: 306px;
+		margin: 30px auto 0;
+	}
+	.k_regTop span:nth-child(1){
+		color: #666666;
+		font-size: 22px;
+	}
+	.k_regTop span:nth-child(3){
+		color: #498e3d;
+		font-size: 16px;
+		float: right;
+		display: inline-block;
+		margin-top: 6px;
+	}
+	.k_regTop img{
+		float: right;
+		margin-top: 8px;
+		margin-left: 4;
 	}
 	
 	.k_regCon .p_verify {
@@ -425,10 +514,26 @@
 	}
 	
 	.p_phone {
+		margin-top: 22px;
 		position: relative;
 	}
 	
 	.p_phone button {
+		position: absolute;
+		right: 44px;
+		top: 19px;
+		width: 100px;
+		height: 32px;
+		border: 0 solid;
+		color: white;
+		background-color: #498e3d;
+		font-size: 15px;
+	}
+	/*注册时的手机验证码*/
+	.s_phone{
+		position: relative;
+	}
+	.s_phone button{
 		position: absolute;
 		right: 44px;
 		top: 41px;
@@ -448,7 +553,9 @@
 		color: #666666;
 		font-size: 13px;
 	}
-	
+	.p_onCon{
+		margin-top: 19px;
+	}
 	#p_btn1,
 	#p_btn2,.p_btn3,.p_btn4 {
 		width: 134px;
@@ -483,8 +590,8 @@
 	.p_msg .p_join {
 		font-size: 15px;
 		color: #666666;
-		margin-top: 15px;
-		margin-bottom: 18px;
+		margin-top: 10px;
+		margin-bottom: 14px;
 	}
 	
 	.p_msg .p_weixin {
