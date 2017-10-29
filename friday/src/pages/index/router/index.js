@@ -63,7 +63,7 @@ export default new Router({
     {
 	    	path:'/z_dirSupply',
 	    	name:'Z_dirSupply',
-	    	component: Z_fivePre
+	    	component: Z_dirSupply
     },
     {
 	    	path:'/z_wholeControl',
@@ -78,7 +78,7 @@ export default new Router({
      {
 	    	path:'/z_fivePre',
 	    	name:'z_fivePre',
-	    	component: Z_dirSupply
+	    	component: Z_fivePre
     },
    
      {
