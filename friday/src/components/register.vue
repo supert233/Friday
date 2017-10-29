@@ -93,6 +93,7 @@
 				<!--用户协议-->
 				<div class="p_user">
 					<input type="checkbox" name="" id="" value="" /> 自动登录
+					
 				</div>
 				<button @click="regbol()" class="p_btn3">注册</button>
 				<button class="p_btn4" @click="longIn">登录</button>
