@@ -9,6 +9,12 @@ import router from './router'
 //Vue.component('v-distpicker', Distpicker)
 import  VueResource  from 'vue-resource'
 
+
+import Vuex from 'vuex'
+import store from '../.././vuex/store'
+
+Vue.use(Vuex)
+
 Vue.use(VueResource) 
 
 Vue.config.productionTip = false
@@ -17,6 +23,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<Joins/>',
   components: { Joins }
 })

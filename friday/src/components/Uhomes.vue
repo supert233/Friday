@@ -54,9 +54,9 @@ export default {
 	
 	 methods:{
 	 	show:function(){
-	 		this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"",type:"add",},{emulateJSON:true}).then(function(res){
-					console.log(res.body);
-				})
+//	 		this.$http.post('/api/user/addUser',{username:"第一次",password:561,massage:"",type:"add",},{emulateJSON:true}).then(function(res){
+//					console.log(res.body);
+//				})
 //	 		var _this = e.target;
 //	 		var  s = _this.innerText;
 //	 		var trs = document.getElementsByClassName("trs");

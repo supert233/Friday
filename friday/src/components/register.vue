@@ -4,7 +4,7 @@
 		<div v-if="cityBol" class="k_city">
 				<div class="K_cityBox">
 					<span>建议您的收货地址: </span>
-					<div class="K_cityVal">河南省郑州市</div>
+					<div class="K_cityVal">河南省郑州市</div>0
 					<v-distpicker province="河南省" city="郑州市" area="中原区"></v-distpicker>
 					<button @click="city2">保存</button>
 				</div>
@@ -23,7 +23,7 @@
 					<li>
 						您好 ,
 						<!--后台传入的登录名-->
-						<div class="login">17701269859</div>
+						<div class="login">{{author}}</div>
 						<span>退出</span>
 					</li>
 					<li>
@@ -61,7 +61,7 @@
 				<div class="p_verify">
 					<input class="p_code" type="text" placeholder="验证码" />
 					<img src="../pages/join/assets/yanzheng.png" alt="" />
-					<span style="font-size: 12px;display: block;height: 42px; line-height: 42px; color: #f08200;">    看不清,换一张</span>
+					<span style="font-size: 14px;display: block;height: 42px; line-height: 42px; color: #f08200;">看不清换一张</span>
 					<span v-if="varcode" class="varcode">请输入正确的验证码</span>
 				</div>
 				<div class="p_phone">
@@ -80,11 +80,11 @@
 
 			<!--登录.内容-->
 			<div class="k_regInp" v-if="enterBol">
-				<input class="p_regInp" type="text" placeholder="请输入手机号" />
+				<input class="p_regInp" type="text" placeholder="请输入手机号" v-model="username" />
 				<div class="p_verify">
 					<input class="p_code" type="text" placeholder="验证码" />
 					<img src="../pages/join/assets/yanzheng.png" alt="" />
-					<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
+					<span style="font-size: 14px;display: block;height: 42px; line-height: 42px;color: #f08200;">看不清换一张</span>
 				</div>
 				<div class="p_phone">
 					<input class="p_regInp" type="text" placeholder="手机验证码" />
@@ -138,6 +138,11 @@
 				regCon:"会员登录"
 			}
 		},
+		computed: {
+		      author () {
+		        return this.$store.state.author
+		      }
+		   },
 		methods:{
 			tray:function(){
 //				this.notes=true;
@@ -155,7 +160,7 @@
 			city2:function(){
 				//获取value值
 				var selects = document.getElementsByTagName("select");
-//				console.log(selects[1].value);
+
 				this.cityVal = selects[0].value + selects[1].value;
 				this.cityBol = false;
 			},
@@ -238,6 +243,13 @@
 					
 				}
 			},
+			//登录
+			longIn:function(){
+				this.$store.commit('newAuthor',this.username);
+//				this.$store.state.author = this.username;
+				
+				localStorage.setItem("userphone",this.username)
+			},
 			//验证是否同意条款
 			agree:function(){
 				var agree = document.getElementsByClassName("agree")[0];
@@ -262,6 +274,7 @@
 			jump:function(){
 				this.regBol=false;
 				this.enterBol=true;
+				this.regCon="会员登录"
 			}
 		
 		},	

@@ -21,14 +21,14 @@
 					</div>
 					<!--登录信息-->
 					<ul class="k_msgOn">
-						<li><a href="/join.html">登录</a></li>
-						<li><a href="/join.html">注册</a></li>
-						<!--<li>
+						<li v-if="nouser"><a href="/join.html">登录</a></li>
+						<li v-if="nouser"><a href="/join.html">注册</a></li>
+						<li v-if="hasuser">
 							您好 ,
 							
-							<div class="login">17701269859</div>
-							<span>退出</span>
-						</li>-->
+							<div class="login">{{author}}</div>
+							<span @click="deleauser"><a href="/join.html">退出</a></span>
+						</li>
 						<li>
 							<span><router-link to="/s_myorder">我的订单</router-link></span>
 						</li>
@@ -106,6 +106,8 @@
 				fir:false,
 				sec:false,
 				cityBol:false,
+				hasuser:false,
+				nouser:true,
 				cityVal:"河南省郑州市",
 //				arr:[
 //					["时令水果","进口水果","沙拉拼盘","水果礼盒"],
@@ -131,6 +133,11 @@
 				inputTxt:""
 			}
 		},
+		computed: {
+		      author () {
+		        return this.$store.state.author
+		      }
+		   },
 //		 computed: {
 //		      author () {
 //		        return this.$store.state.author
@@ -200,10 +207,26 @@
 			list9:function(){
 				this.arrs=this.arr9
 			},
+			//退出登录
+			deleauser:function(){
+				localStorage.removeItem('userphone');
+			}
 			
 			
 		},
 		mounted(){
+//			alert(4);
+			var userphone = localStorage.getItem("userphone");
+			console.log(userphone);
+			if (userphone == null) {
+				this.nouser=true;
+				this.hasuser=false;
+			}else{
+				this.nouser=false;
+				this.hasuser=true;
+				this.$store.commit('newAuthor',userphone);
+			}
+			
 //			setTimeout(this.btn(),0)
 //			this.btn();
 //			function(){
