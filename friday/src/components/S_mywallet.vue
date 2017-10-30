@@ -1,6 +1,6 @@
 <template>
 	<div class="	s_mywal">
-		<div class="s_mywal_he"><span>账户余额:<span>¥20.0</span></span></div>
+		<div class="s_mywal_he"><span>账户余额:<span>¥{{mymoney}}</span></span></div>
 		<!--充值-->
 		<div class="s_wal_mas">
 			<!--充值金额-->
@@ -33,6 +33,11 @@
 				chMon:'',
 				mone:["500元","1000元","2000元"]
 			}
+		},
+		computed:{
+			mymoney () {
+	        return this.$store.state.mymoney
+	      },
 		},
 		methods:{
 //			chose:function(e){

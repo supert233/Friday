@@ -310,17 +310,23 @@
 						
 						},{emulateJSON:true}).then(function(res){
 							var keys=res.body.err;
-							console.log(res);
-							if(keys == 1){
+							var ids = res.body[0];
+//							console.log(keys);
+							if(keys == 0){
+								alert("用户名或密码错误")
 //								window.open("http://localhost:8000/index.html");
-								this.$store.commit('newAuthor', this.username);
-								//this.$store.state.author = this.username;
-								localStorage.setItem("userphone", this.username)
-								window.location.href="/index.html";
+								
+//								
 //								console.log("登录成功")
 							}else{
 //								console.log("用户名或密码错误")
-								alert("用户名或密码错误")
+								this.$store.commit('truename', ids.username);
+								//this.$store.state.author = this.username;
+								localStorage.setItem("userphone", ids.username)
+								localStorage.setItem("userid", ids.userid);
+								localStorage.setItem("truename", ids.username);
+								window.location.href="/index.html";
+								console.log(ids);
 							}
 						})
 
@@ -338,14 +344,18 @@
 
 						},{emulateJSON:true}).then(function(res){
 							var keys=res.body.err;
+							var ids = res.body[0];
 								console.log(res);
-								if(keys == 1){
-									this.$store.commit('newAuthor', this.username);
-									localStorage.setItem("userphone", this.username)
-									window.location.href="/index.html";
+								if(keys == 0){
+									alert("这位客官,您的号码还没有注册,请注册后登录")
 								}else{
 	//								console.log("用户名或密码错误")
-									alert("这位客官,您的号码还没有注册,请注册后登录")
+								
+									this.$store.commit('truename', ids.username);
+									localStorage.setItem("userphone", ids.username);
+									localStorage.setItem("userid", ids.userid);
+									localStorage.setItem("truename", ids.username);
+									window.location.href="/index.html";
 								}
 							})
 						this.varcode2=false;

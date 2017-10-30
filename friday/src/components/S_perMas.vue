@@ -6,7 +6,7 @@
 				<span>当前头像 : </span>
 				<img src="../pages/index/assets/用户头像.png"/>
 			</div>
-			<div class="perName"><span>昵称 : </span><input type="" name="" id="" value="" /></div>
+			<div class="perName"><span>昵称 : </span><input type="" name="" id="" value=""  v-model="turena"/></div>
 			<div class="perSex">
 				<span>性别 : </span>
 				<input type="radio" name="sex" id="man" /> <label for="man">男</label>
@@ -78,31 +78,31 @@
 				</select>
 				年
 				<select id="form_dob_month" name="dob_month">  
-				    <option value="1">January</option>
-				    <option value="2">Febuary</option>
-				    <option value="3">March</option>
-				    <option value="4">April</option>
-				    <option value="5">May</option>
-				    <option value="6">June</option>
-				    <option value="7">July</option>
-				    <option value="8">August</option>
-				    <option value="9">September</option>
-				    <option value="10" selected="selected">October</option>
-				    <option value="11">November</option>
-				    <option value="12">December</option>
+				    <option value="01">1</option>
+				    <option value="02">2</option>
+				    <option value="03">3</option>
+				    <option value="04">4</option>
+				    <option value="05">5</option>
+				    <option value="06">6</option>
+				    <option value="07">7</option>
+				    <option value="08">8</option>
+				    <option value="09">9</option>
+				    <option value="10" selected="selected">10</option>
+				    <option value="11">11</option>
+				    <option value="12">12</option>
 				</select>
 				月
 				 <select id="form_dob_day" name="dob_day">
 				    <option value="-">-</option>
-				    <option value="1">1</option>
-				    <option value="2">2</option>
-				    <option value="3">3</option>
-				    <option value="4">4</option>
-				    <option value="5">5</option>
-				    <option value="6">6</option>
-				    <option value="7">7</option>
-				    <option value="8">8</option>
-				    <option value="9">9</option>
+				    <option value="01">1</option>
+				    <option value="02">2</option>
+				    <option value="03">3</option>
+				    <option value="04">4</option>
+				    <option value="05">5</option>
+				    <option value="06">6</option>
+				    <option value="07">7</option>
+				    <option value="08">8</option>
+				    <option value="09">9</option>
 				    <option value="10" selected="selected">10</option>
 				    <option value="11">11</option>
 				    <option value="12">12</option>
@@ -130,15 +130,74 @@
 			</div>
 			<div class="perPhone">
 				<span>手机 : </span> 
-				<input type="number" name="" id="" value="" />
+				<input type="number" name="" id="" value=""  v-model="chanphone"/>
 				<router-link to="/s_changePhone"><span class="chaPhone">更换手机</span></router-link>
 			</div>
-			<button>确认提交</button>
+			<button @click="changeMas">确认提交</button>
+			
 		</div>
 	</div>
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				turena:"",
+				chanphone:"",
+				sex:""
+			}
+		},
+		methods:{
+			changeMas:function(){
+				this.$store.commit('truename',this.turena);
+				var userid = localStorage.getItem("userid");
+				var man = document.getElementsByName("sex")[0];
+				var women = document.getElementsByName("sex")[1];
+				var year = document.getElementsByTagName("select")[0].value;
+				var month = document.getElementsByTagName("select")[1].value;
+				var day = document.getElementsByTagName("select")[2].value;
+				
+				var barth = year+month+day;
+				console.log(barth);
+				if (man.checked) {
+					this.sex="男"
+				}else if(women.checked){
+					this.sex="女"
+				}else{
+					this.sex=""
+				}
+
+				this.$http.post('/api/user/changeuser',{
+						userid:userid,
+						username:this.turena,
+						sex:this.sex,
+						birthday:barth,
+						
+						
+						},{emulateJSON:true}).then(function(res){
+							
+							
+						})
+				
+				
+				
+			}
+			
+		},
+		computed:{
+			truename () {
+	        return this.$store.state.truename
+	      },
+	      userphone () {
+	        return this.$store.state.userphone
+	      },
+		},
+		mounted(){
+			this.turena = this.$store.state.truename
+			this.chanphone = this.$store.state.userphone
+		}
+	}
 </script>
 
 <style scoped>
@@ -194,6 +253,7 @@
 		line-height: 32px;
 		text-indent: 24px;
 		outline: none;
+		font-size: 16px;
 		color: #666666;
 	}
 	.perPhone .chaPhone{
@@ -207,9 +267,10 @@
 		border:1px solid #d3d3d3 ;
 		/*appearance:none;*/
 		appearance: none;
-		font-size: 12px;
+		font-size: 16px;
 		padding-left: 24px;
 		outline: none;
+		
 	}
 	.perBath select:nth-child(2),.perBath select:nth-child(3){
 		/*margin-left: 20px;*/

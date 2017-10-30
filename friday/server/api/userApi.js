@@ -54,13 +54,13 @@ router.post('/findUser', function(req,res) {
     var usernames = params.username;
     var passwords = params.password;
 //  console.log(params);
-	conn.query('SELECT * FROM user WHERE username='+usernames+' and password='+passwords+'', function(err, rows,result) {
+	conn.query('SELECT * FROM user WHERE userphone='+usernames+' and password='+passwords+'', function(err, rows,result) {
         if (rows == "" || rows == undefined) {
 //          console.log(err); 
             res.send('{"err":0}');    
         }else {
-//	        res.send(rows);
-	        res.send('{"err":1}');
+	        res.send(rows);
+//	        res.send('{"err":1}');
             console.log(rows);
         }
     })
@@ -75,28 +75,7 @@ router.post('/findUserp', function(req,res) {
     var usernames = params.username;
     var passwords = params.password;
 //  console.log(params);
-	conn.query('SELECT * FROM user WHERE username='+usernames+' ', function(err, rows,result) {
-        if (rows == "" || rows == undefined) {
-//          console.log(err); 
-            res.send('{"err":0}');    
-        }else {
-//	        res.send(rows);
-	        res.send('{"err":1}');
-            console.log(rows);
-        }
-    })
-
-});
-//个人中心
-router.post('/findUsermsg', function(req,res) {
-//  var sql = $sql.user.add;
-//  var finduser = $sql.user.finduser;
-    var params = req.body;
-    var act = params.type;
-    var usernames = params.username;
-//  var passwords = params.password;
-//  console.log(params);
-	conn.query('SELECT * FROM user WHERE username='+usernames+' ', function(err, rows,result) {
+	conn.query('SELECT * FROM user WHERE userphone='+usernames+' ', function(err, rows,result) {
         if (rows == "" || rows == undefined) {
 //          console.log(err); 
             res.send('{"err":0}');    
@@ -108,6 +87,98 @@ router.post('/findUsermsg', function(req,res) {
     })
 
 });
+//个人中心
+router.post('/findUsermsg', function(req,res) {
+//  var sql = $sql.user.add;
+//  var finduser = $sql.user.finduser;
+    var params = req.body;
+    var act = params.type;
+    var userid = params.userid;
+//  var passwords = params.password;
+//  console.log(params);
+	conn.query('SELECT * FROM user WHERE userid='+userid+' ', function(err, rows,result) {
+        if (rows == "" || rows == undefined) {
+//          console.log(err); 
+            res.send('{"err":0}');    
+        }else {
+	        res.send(rows);
+//	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+//修改个人资料
+router.post('/changeuser', function(req,res) {
+//  var sql = $sql.user.add;
+//  var finduser = $sql.user.finduser;
+    var params = req.body;
+   
+    var userid = params.userid;
+    var username = params.username;
+    var sex = params.sex;
+    var birthday = params.birthday;
+//  var passwords = params.password;
+//console.log(params);
+	conn.query('UPDATE user SET sex='+sex+',username='+username+',birthday='+birthday+'  WHERE userid='+userid, function(err, rows,result) {
+         console.log(rows);
+        if (rows == "" || rows == undefined) {
+
+
+            res.send('{"err":0}');    
+        }else {
+	        res.send(rows);
+//	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+
+//首页获取数据
+router.post('/indexCons',function(req,res){
+	conn.query('SELECT * FROM commodity', function(err,rows){
+		if (rows=="" || rows == undefined) {
+			res.send('{"err":0}')
+		} else{
+			res.send(rows);
+		}
+	})
+})
+
+
+//首页获取数据
+router.post('/indexCons',function(req,res){
+	conn.query('SELECT * FROM commodity', function(err,rows){
+		if (rows=="" || rows == undefined) {
+			res.send('{"err":0}')
+		} else{
+			res.send(rows);
+		}
+	})
+})
+
+//首页获取数据
+router.post('/indexCons',function(req,res){
+	conn.query('SELECT * FROM commodity', function(err,rows){
+		if (rows=="" || rows == undefined) {
+			res.send('{"err":0}')
+		} else{
+			res.send(rows);
+		}
+	})
+})
+
+//首页获取数据
+router.post('/indexCons',function(req,res){
+	conn.query('SELECT * FROM commodity', function(err,rows){
+		if (rows=="" || rows == undefined) {
+			res.send('{"err":0}')
+		} else{
+			res.send(rows);
+		}
+	})
+})
 
 //首页获取数据
 router.post('/indexCons',function(req,res){
