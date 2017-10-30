@@ -87,7 +87,7 @@
 						<img src="../pages/index/assets/icon5.png" alt="" />
 						<span @click="onBol1()">账号密码登录</span>
 					</div>
-					<input class="v_regInp" type="text" placeholder="请输入手机号" v-model="username"/>
+					<input class="v_regInp" type="text" placeholder="请输入手机号" v-model="username" @blur="truePhone()"/>
 					<div class="p_verify">
 						<input class="p_code" type="text" placeholder="验证码" />
 						<img src="../pages/join/assets/yanzheng.png" alt="" />
@@ -285,6 +285,13 @@
 			},
 			//登录
 			longIn: function() {
+				if(this.poff){
+					console.log("账号密码登录")
+				}else{
+					console.log("手机登录")
+				}
+				
+				
 				this.$store.commit('newAuthor', this.username);
 				//this.$store.state.author = this.username;
 				localStorage.setItem("userphone", this.username)
