@@ -46,7 +46,7 @@ export default {
 	 },
 	 data(){
 	 	return{
-	 		username:"",
+	 		
 	 		
 	 		
 	 	}
@@ -79,18 +79,16 @@ export default {
 	 },
 	 mounted(){
 	 	var userphone = localStorage.getItem("userphone");
+	 	var userid = localStorage.getItem("userid");
 	 	this.$http.post('/api/user/findUsermsg',{
-						username:userphone,
+						userid:userid,
 						},{emulateJSON:true}).then(function(res){
 							var keys=res.body[0];
-//							console.log(res);
-							
-//								this.$store.commit('newAuthor', this.username);
-//								localStorage.setItem("userphone", this.username)
-//								console.log(keys);
-								this.username = keys.username;
-								console.log(keys.username);
-								
+								this.$store.commit('truename',keys.username);
+								this.$store.commit('myscore',keys.myscore);
+								this.$store.commit('mymoney',keys.mymoney);
+								this.$store.commit('userid',keys.userid);
+								this.$store.commit('userphone',keys.userphone);
 							
 						})
 	 }

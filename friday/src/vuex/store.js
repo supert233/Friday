@@ -8,7 +8,14 @@ const store = new Vuex.Store({
   state: {
     author: '',
     twoweb:'',
-    oneweb:''
+    oneweb:'',
+    truename:'',
+    userid:'',
+    myscore:'',
+    mymoney:'',
+    userphone:'',
+    allweb:'',
+
   },
   mutations:{
   	newAuthor(state,msg){
@@ -19,7 +26,28 @@ const store = new Vuex.Store({
   	},
   	twoAuthor(state,msg){
   		state.twoweb=msg
+  	},
+
+  	truename(state,msg){
+  		state.truename=msg
+  	},
+  	userid(state,msg){
+  		state.userid=msg
+  	},
+  	myscore(state,msg){
+  		state.myscore=msg
+  	},
+  	mymoney(state,msg){
+  		state.mymoney=msg
+  	},
+  	userphone(state,msg){
+  		state.userphone=msg
+  	},
+
+  	allAuthor(state,msg){
+  		state.allweb=msg
   	}
+
   	
   }
 })

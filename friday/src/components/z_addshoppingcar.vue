@@ -18,7 +18,8 @@
 					</div>
 					<span>件</span>
 				</div>
-				<router-link to="/KshopCon"><button class="z_shoppingcar">添加到购物车</button></router-link>
+				<router-link to="/KshopCon"><button v-if="addShop" class="z_shoppingcar">添加到购物车</button></router-link>
+				<a href="join.html"><button v-if="!addShop" class="z_shoppingcar">添加到购物车</button></a>
 			</div>
 			
 		</div>
@@ -33,7 +34,8 @@
   				curPrice:20,
   				bgbol1:false,
 				bgbol2:false,
-				bgbol3:false
+				bgbol3:false,
+				addShop:false				
   			}
   		},
   		methods:{
@@ -75,7 +77,19 @@
 				this.bgbol1=false;
 				this.bgbol2=false;
 			}
-  		}
+			
+			
+  		},
+  		mounted(){
+			var userphone = localStorage.getItem("userphone");
+			if (userphone == null || userphone =="") {
+				this.addShop=false;				
+			}else{
+				this.addShop=true;				
+			}
+			
+		}
+  			
   	}
 </script>
 
@@ -170,9 +184,5 @@
 		color:white;
 		font-size: 18px;
 		margin-top:40px;
-		
-		
 	}
-	
-		
 </style>

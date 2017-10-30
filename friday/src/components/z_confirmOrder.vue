@@ -464,6 +464,7 @@
 	/*实付金额部分*/
 	.z_payMoney{
 		width:1280px;
+		height: 228px;
 		margin:0 auto;
 	}
 	.z_fact{
@@ -498,7 +499,7 @@
 	/*有地址的收货人信息*/
 	.havedInf{
 		width:1278px;
-		margin:0 auto ;
+		margin:14px auto 0;
 		border-bottom: 1px solid #e9e9e9;
 		margin-bottom: 20px;
 		padding-bottom: 26px;

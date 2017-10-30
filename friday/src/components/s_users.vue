@@ -2,12 +2,12 @@
 	<div class="s_users">
 		<div class="s_username">
 			<div class="user_photo"><img src="../pages/index/assets/用户头像.png"/></div>
-			<p class="s_hello"><span>你好,</span><span>24654644</span></p>
+			<p class="s_hello"><span>你好,</span><span>{{truename}}</span></p>
 			<div class="s_recharge"><span class="upMoney"><router-link to="/s_mywallet">充值有礼>></router-link></span></router-link><span class="oColor"><router-link to="/s_rechargeCard">充值卡兑换>></router-link></span></div>
-			<div class="s_wallet"><span>我的钱包</span><span>564654</span></div>
+			<div class="s_wallet"><span>我的钱包</span><span>{{mymoney}}</span></div>
 			
 			<div class="s_nowint">
-				<span>当前积分</span><span>2356</span>
+				<span>当前积分</span><span>{{myscore}}</span>
 			</div>
 			
 		</div>
@@ -22,6 +22,17 @@
 //	  		Users
 //	  	
 //	  }
+	computed: {
+	      truename () {
+	        return this.$store.state.truename
+	      },
+	      myscore () {
+	        return this.$store.state.myscore
+	      },
+	       mymoney () {
+	        return this.$store.state.mymoney
+	      },
+	    }
 	}
 </script>
 

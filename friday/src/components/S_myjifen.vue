@@ -2,7 +2,7 @@
 	<div class="s_myjifen">
 		<div class="s_myj_head"><span>我的积分</span></div>
 		<div class="s_myj_mas">
-			<span class="s_myj_now">当前积分: <span>{{num}}分</span></span>
+			<span class="s_myj_now">当前积分: <span>{{myscore}}分</span></span>
 			<!--下面的所有订单-->
 			<div class="s_myjAll">
 				<div class="s_myj_masH">
@@ -42,6 +42,11 @@
 			return{
 				num:400
 			}
+		},
+		computed:{
+			myscore () {
+	        return this.$store.state.myscore
+	      },
 		}
 	}
 </script>

@@ -26,7 +26,7 @@
 						<li v-if="hasuser">
 							您好 ,
 							
-							<div class="login">{{author}}</div>
+							<div class="login">{{truename}}</div>
 							<span @click="deleauser"><a href="/join.html">退出</a></span>
 						</li>
 						<li>
@@ -139,9 +139,9 @@
 			}
 		},
 		computed: {
-		      author () {
-		        return this.$store.state.author
-		      }
+		        truename () {
+		        return this.$store.state.truename
+		      },
 		   },
 //		 computed: {
 //		      author () {
@@ -250,7 +250,7 @@
 			}else{
 				this.nouser=false;
 				this.hasuser=true;
-				this.$store.commit('newAuthor',userphone);
+				this.$store.commit('truename',userphone);
 			}
 			
 
