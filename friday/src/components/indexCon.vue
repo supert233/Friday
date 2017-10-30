@@ -25,7 +25,7 @@
 			</div>
 			<!--开始时间下面的轮播图-->
 			<div class="v_binBan">
-				<router-link to="/zaddshop"><img src="../pages/index/assets/special.png" alt="" /></router-link>
+				<img src="../pages/index/assets/special.png" alt="" />
 				<img src="../pages/index/assets/special2.png" alt="" />
 				<img src="../pages/index/assets/special3.png" alt="" />
 				<img src="../pages/index/assets/special4.png" alt="" />
@@ -42,12 +42,48 @@
 				</div>
 			</div>
 			<!--开始时间下面的轮播图-->
-			<div class="v_binBan">
-				<img src="../pages/index/assets/special5.jpg" alt="" />
-				<img src="../pages/index/assets/special6.jpg" alt="" />
-				<img src="../pages/index/assets/special7.jpg" alt="" />
-				<img src="../pages/index/assets/special8.jpg" alt="" />
-			</div>
+			<ul class="v_binBan">
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special5.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img  src="../pages/index/assets/special6.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special7.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special8.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+			</ul>
 			
 			<!--第三行-->
 			<div class="v_time">
@@ -61,12 +97,48 @@
 				</div>
 			</div>
 			<!--开始时间下面的轮播图-->
-			<div class="v_binBan">
-				<img src="../pages/index/assets/special9.jpg" alt="" />
-				<img src="../pages/index/assets/special10.jpg" alt="" />
-				<img src="../pages/index/assets/special11.jpg" alt="" />
-				<img src="../pages/index/assets/special12.jpg" alt="" />
-			</div>
+			<ul class="v_binBan">
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special10.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special11.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special12.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special13.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+			</ul>
 			
 			<!--第四行-->
 			<div class="v_time">
@@ -79,13 +151,49 @@
 					<span class="v_more">更多 > </span>
 				</div>
 			</div>
-			<!--开始时间下面的轮播图-->
-			<div class="v_binBan">
-				<img src="../pages/index/assets/special5.jpg" alt="" />
-				<img src="../pages/index/assets/special6.jpg" alt="" />
-				<img src="../pages/index/assets/special7.jpg" alt="" />
-				<img src="../pages/index/assets/special8.jpg" alt="" />
-			</div>
+			
+			<ul class="v_binBan">
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special5.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special6.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special7.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special8.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+			</ul>
 			
 			<!--第五行-->
 			<div class="v_time">
@@ -98,17 +206,56 @@
 					<span class="v_more">更多 > </span>
 				</div>
 			</div>
-			<!--开始时间下面的轮播图-->
-			<div class="v_binBan v_foots">
-				<img src="../pages/index/assets/special9.jpg" alt="" />
-				<img src="../pages/index/assets/special10.jpg" alt="" />
-				<img src="../pages/index/assets/special11.jpg" alt="" />
-				<img src="../pages/index/assets/special12.jpg" alt="" />
-			</div>
+			
+			<ul class="v_binBan v_foots">
+				
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special10.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special11.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special12.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+				<li>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special13.jpg" alt="" /></router-link>
+					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+					<span class="v_bin2">果肉绵密 .......</span>
+					<div class="v_bin3">
+						<span>¥28.85</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
+				</li>
+			
+			</ul>
 			
 		</div>
 		<!--规格框-->
-		<div>
+		<div @click="hidden()" v-if="hiddenBol" class="k_weight"></div>
+		<div class="k_weights" v-if="hiddenBol" @click="k_show()">
 			<router-view></router-view>
 		</div>
 	</div>
@@ -127,6 +274,7 @@
 				hour:"0",
 				minute:"0",
 				sec:"0",
+				hiddenBol:false
 			}
 		},
 		methods:{
@@ -157,6 +305,12 @@
 					this.days = 5 - Day;
 				}
 			},
+			hidden:function(){
+				this.hiddenBol=false;
+			},
+			k_show:function(){
+				this.hiddenBol=true;
+			}
 		},
 		mounted(){
 			setTimeout(this.times,0);
@@ -239,15 +393,64 @@ body,div,img,input,ul,li,span,img{
 	width: 100%;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	font-size: 0;
 	display: flex;
 	justify-content: space-between;
 }
-.v_binBan img{
-	width: 305px;
-	height: 433px;
+.v_binBan li{
+	width: 304px;
+	height: 432px;
+	border: 1px solid #ececec;
+	position: relative;
+}
+.v_binBan .v_bin1{
+	color: #333333;
+	font-size: 18px;
+	display: block;
+	margin-left: 20px;
+}
+.v_binBan .v_bin2{
+	color: #666666;
+	font-size: 14px;
+	display: block;
+	margin-left: 20px;
+	margin-top: 8px;
+}
+.v_binBan .v_bin3{
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.v_bin3 span:nth-child(1){
+	color: #ff5757;
+	font-size: 20px;
+}
+.v_bin3 span:nth-child(2){
+	color: #666666;
+	font-size: 14px;
+	margin-left: 16px;
+}
+.v_binBan .v_bin4{
+	position: absolute;
+	right: 20px;
+	bottom: 24px;
 }
 .v_foots{
 	margin-bottom: 40px;
+}
+
+/*规格框*/
+.k_weight{
+	background-color: rgba(0,0,0,0.3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+.k_weights{
+	position: fixed;
+	top: 200px;
+	left: 600px;
+	z-index: 2000;
 }
 </style>
