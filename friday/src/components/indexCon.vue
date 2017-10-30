@@ -30,6 +30,7 @@
 				<img src="../pages/index/assets/special3.png" alt="" />
 				<img src="../pages/index/assets/special4.png" alt="" />
 			</div>
+			
 			<!--第二行-->
 			<div class="v_time">
 				<div class="v_leftTime">
@@ -43,46 +44,16 @@
 			</div>
 			<!--开始时间下面的轮播图-->
 			<ul class="v_binBan">
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special5.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+				<li v-for="item in arr1">
+					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
+					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">果肉绵密 .......</span>
 					<div class="v_bin3">
-						<span>¥28.85</span>
+						<span>¥{{item.comprice}}</span>
 						<span>¥40.00</span>
 					</div>
 					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img  src="../pages/index/assets/special6.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special7.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special8.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
+				</li>				
 			</ul>
 			
 			<!--第三行-->
@@ -98,42 +69,12 @@
 			</div>
 			<!--开始时间下面的轮播图-->
 			<ul class="v_binBan">
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special10.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+				<li v-for="item in arr2">
+					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
+					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">果肉绵密 .......</span>
 					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special11.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special12.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special13.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
+						<span>¥{{item.comprice}}</span>
 						<span>¥40.00</span>
 					</div>
 					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
@@ -153,42 +94,12 @@
 			</div>
 			
 			<ul class="v_binBan">
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special5.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+				<li v-for="item in arr3">
+					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
+					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">果肉绵密 .......</span>
 					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special6.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special7.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special8.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
+						<span>¥{{item.comprice}}</span>
 						<span>¥40.00</span>
 					</div>
 					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
@@ -209,47 +120,16 @@
 			
 			<ul class="v_binBan v_foots">
 				
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special10.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
+				<li v-for="item in arr4">
+					<router-link to="/Zdetail"><img src="../pages/index/assets/special15.png" alt="" /></router-link>
+					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">果肉绵密 .......</span>
 					<div class="v_bin3">
-						<span>¥28.85</span>
+						<span>¥{{item.comprice}}</span>
 						<span>¥40.00</span>
 					</div>
 					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
 				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special11.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special12.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-				<li>
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special13.jpg" alt="" /></router-link>
-					<span class="v_bin1">新西兰佳沛黄金奇异果</span>
-					<span class="v_bin2">果肉绵密 .......</span>
-					<div class="v_bin3">
-						<span>¥28.85</span>
-						<span>¥40.00</span>
-					</div>
-					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
-				</li>
-			
 			</ul>
 			
 		</div>
@@ -265,7 +145,7 @@
 <script>
 	import slider from './swiper'// 引入slider组件
 	export default{
-		name:"vall",
+		name:"vall",		
 		 components:{
 		 	slider
 		 },
@@ -275,7 +155,11 @@
 				hour:"0",
 				minute:"0",
 				sec:"0",
-				hiddenBol:false
+				hiddenBol:false,
+				arr1:[],
+				arr2:[],
+				arr3:[],
+				arr4:[]
 			}
 		},
 		methods:{
@@ -316,6 +200,34 @@
 		mounted(){
 			setTimeout(this.times,0);
 			setInterval(this.times,1000);
+			
+			//获取首页数据
+			this.$http.post('api/user/indexCons',{}, {emulateJSON: true}).then(function(res){
+
+				var allData = res.body;
+				console.log(allData)
+				for (var i=0; i< allData.length; i++) {
+					
+					switch (allData[i].comtype){
+						case "水果":
+							this.arr1.push(allData[i]);	
+							break;
+						case "海鲜":
+							this.arr2.push(allData[i]);
+							break;
+						case "速食":
+							this.arr3.push(allData[i]);
+							break;
+						case "禽蛋":
+							this.arr4.push(allData[i]);
+							
+							break;
+						default:
+							break;
+					}
+				}
+			})
+			
 		}
 	}
 	
@@ -428,6 +340,7 @@ body,div,img,input,ul,li,span,img{
 	color: #666666;
 	font-size: 14px;
 	margin-left: 16px;
+	text-decoration: line-through;
 }
 .v_binBan .v_bin4{
 	position: absolute;

@@ -12,11 +12,10 @@
 			<span>一级分类 : </span>
 			<ul>
 				<li>全部</li>
-				<li>苹果</li>
-				<li>阿克苏</li>
-				<li>酒店</li>
-				<li>休闲</li>
-				<li>电影</li>
+				<li>新鲜水果</li>
+				<li>生猛海鲜</li>
+				<li>肉类家禽</li>
+				<li>蛋奶素食</li>
 			</ul>
 		</div>
 		<!--二级分类-->
@@ -24,11 +23,7 @@
 			<span>二级分类 : </span>
 			<ul>
 				<li>全部</li>
-				<li>苹果</li>
-				<li>阿克苏</li>
-				<li>酒店</li>
-				<li>休闲</li>
-				<li>电影</li>
+				<li v-for="item in allweb">{{item}}</li>				
 			</ul>
 		</div>
 		<div class="k_select">
@@ -79,6 +74,9 @@
 			oneweb(){
 				return this.$store.state.oneweb
 			},
+			allweb(){
+				return this.$store.state.allweb
+			}
 			
 		},
 		

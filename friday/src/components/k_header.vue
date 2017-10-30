@@ -24,8 +24,7 @@
 						<li v-if="nouser"><a href="/join.html">登录</a></li>
 						<li v-if="nouser"><a href="/join.html">注册</a></li>
 						<li v-if="hasuser">
-							您好 ,
-							
+							您好 ,							
 							<div class="login">{{author}}</div>
 							<span @click="deleauser"><a href="/join.html">退出</a></span>
 						</li>
@@ -135,6 +134,7 @@
 				arr9:["实木沙发","高级壁纸"],
 				arrs:"",
 				inputTxt:"",
+				allArr:[],
 				
 			}
 		},
@@ -236,7 +236,12 @@
 			},
 			k_list:function(e){
 				var e = e.target;
-				this.$store.commit('twoAuthor',e.innerText)
+				var a = e.parentNode.childNodes;
+				for (var i = 0; i < a.length; i++) {
+					this.allArr.push(a[i].innerText);
+				}
+				this.$store.commit('twoAuthor',e.innerText);
+				this.$store.commit('allAuthor',this.allArr);
 			}
 			
 		},
