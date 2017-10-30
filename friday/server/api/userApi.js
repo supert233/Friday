@@ -27,21 +27,6 @@ router.post('/addUser', function(req,res) {
     var act = params.type;
     var usernames = params.username;
     console.log(params);
-//  switch (act){
-//  	case "add":
-//  		conn.query(sql,[params.username, params.password,params.massage],function(err,result){
-//  			if (err) {
-//  				console.log(err)
-//  			}
-//  			if (result) {
-//  				res.end(result)
-//  			}
-//  		});
-// 
-//  		break;
-//  	default:
-//  		break;
-//  };
 	conn.query('SELECT * FROM user WHERE username='+usernames+'', function(err, rows,result) {
         if (rows == "") {
             console.log(err); 
@@ -56,6 +41,69 @@ router.post('/addUser', function(req,res) {
         }else {
 	        res.send('{"err":"用户已存在"}');
            
+        }
+    })
+
+});
+//登录查找
+router.post('/findUser', function(req,res) {
+//  var sql = 0$sql.user.add;
+//  var finduser = $sql.user.finduser;
+    var params = req.body;
+    var act = params.type;
+    var usernames = params.username;
+    var passwords = params.password;
+//  console.log(params);
+	conn.query('SELECT * FROM user WHERE username='+usernames+' and password='+passwords+'', function(err, rows,result) {
+        if (rows == "" || rows == undefined) {
+//          console.log(err); 
+            res.send('{"err":0}');    
+        }else {
+//	        res.send(rows);
+	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+//手机登录
+router.post('/findUserp', function(req,res) {
+//  var sql = $sql.user.add;
+//  var finduser = $sql.user.finduser;
+    var params = req.body;
+    var act = params.type;
+    var usernames = params.username;
+    var passwords = params.password;
+//  console.log(params);
+	conn.query('SELECT * FROM user WHERE username='+usernames+' ', function(err, rows,result) {
+        if (rows == "" || rows == undefined) {
+//          console.log(err); 
+            res.send('{"err":0}');    
+        }else {
+//	        res.send(rows);
+	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+//个人中心
+router.post('/findUsermsg', function(req,res) {
+//  var sql = $sql.user.add;
+//  var finduser = $sql.user.finduser;
+    var params = req.body;
+    var act = params.type;
+    var usernames = params.username;
+//  var passwords = params.password;
+//  console.log(params);
+	conn.query('SELECT * FROM user WHERE username='+usernames+' ', function(err, rows,result) {
+        if (rows == "" || rows == undefined) {
+//          console.log(err); 
+            res.send('{"err":0}');    
+        }else {
+	        res.send(rows);
+//	        res.send('{"err":1}');
+            console.log(rows);
         }
     })
 

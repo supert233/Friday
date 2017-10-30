@@ -46,7 +46,7 @@ export default {
 	 },
 	 data(){
 	 	return{
-	 		
+	 		username:"",
 	 		
 	 		
 	 	}
@@ -77,6 +77,23 @@ export default {
 
 	 	}
 	 },
+	 mounted(){
+	 	var userphone = localStorage.getItem("userphone");
+	 	this.$http.post('/api/user/findUsermsg',{
+						username:userphone,
+						},{emulateJSON:true}).then(function(res){
+							var keys=res.body[0];
+//							console.log(res);
+							
+//								this.$store.commit('newAuthor', this.username);
+//								localStorage.setItem("userphone", this.username)
+//								console.log(keys);
+								this.username = keys.username;
+								console.log(keys.username);
+								
+							
+						})
+	 }
 	 
 
 	
