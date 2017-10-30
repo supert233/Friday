@@ -18,7 +18,7 @@
 					</div>
 					<span>件</span>
 				</div>
-				<button class="z_shoppingcar">添加到购物车</button>
+				<router-link to="/KshopCon"><button class="z_shoppingcar">添加到购物车</button></router-link>
 			</div>
 			
 		</div>

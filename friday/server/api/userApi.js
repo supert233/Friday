@@ -47,7 +47,7 @@ router.post('/addUser', function(req,res) {
 });
 //登录查找
 router.post('/findUser', function(req,res) {
-//  var sql = $sql.user.add;
+//  var sql = 0$sql.user.add;
 //  var finduser = $sql.user.finduser;
     var params = req.body;
     var act = params.type;

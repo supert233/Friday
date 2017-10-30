@@ -236,7 +236,7 @@
 			},
 			k_list:function(e){
 				var e = e.target;
-				this.$store.commit('newAuthor',e.innerText)
+				this.$store.commit('twoAuthor',e.innerText)
 			}
 			
 		},

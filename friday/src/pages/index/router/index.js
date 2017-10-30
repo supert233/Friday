@@ -26,6 +26,7 @@ import Kinte from '../../.././components/k_inte'
 import Local from "../../.././components/local"
 import Five from "../../.././components/five"
 import Protect from "../../.././components/protect"
+import ShopCon from "../../.././components/shopCon"
 
 import Zdetail from "../../.././components/z_detail"
 import Zaddshop from "../../.././components/z_addshoppingcar"
@@ -60,6 +61,11 @@ export default new Router({
 	    	name:'z_score',
 	    	component: Z_score
     },
+     {
+	    	path:'/Z_confirmOrder',
+	    	name:'Z_confirmOrder',
+	    	component: Z_confirmOrder
+    },
     {
 	    	path:'/z_dirSupply',
 	    	name:'Z_dirSupply',
@@ -69,6 +75,11 @@ export default new Router({
 	    	path:'/z_wholeControl',
 	    	name:'z_wholeControl',
 	    	component: z_wholeControl
+    },
+     {
+	    	path:'/KshopCon',
+	    	name:'ShopCon',
+	    	component: ShopCon
     },
     {
 	    	path:'/z_onTime',

@@ -12,10 +12,13 @@ const store = new Vuex.Store({
   },
   mutations:{
   	newAuthor(state,msg){
-  		state.twoweb=msg
+  		state.author=msg
   	},
   	oneAuthor(state,msg){
   		state.oneweb=msg
+  	},
+  	twoAuthor(state,msg){
+  		state.twoweb=msg
   	}
   	
   }

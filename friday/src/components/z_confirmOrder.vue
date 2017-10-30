@@ -498,7 +498,7 @@
 	/*有地址的收货人信息*/
 	.havedInf{
 		width:1278px;
-		margin:0 auto;
+		margin:0 auto ;
 		border-bottom: 1px solid #e9e9e9;
 		margin-bottom: 20px;
 		padding-bottom: 26px;

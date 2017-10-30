@@ -57,10 +57,14 @@
 						<span class="up" @click="inputAdd()">+</span>
 					</div>
 					<span>件</span>
-					<div class="shopping">加入购物车</div>
-					<div class="pay">
+					<router-link to="/KshopCon"><div v-if="addShop" class="shopping">加入购物车</div></router-link>
+					<a href="join.html"><div v-if="!addShop" class="shopping">加入购物车</div></a>
+					<router-link to="/Z_confirmOrder"><div v-if="buyShop" class="pay">
 						<a href="">立即购买</a>
-					</div>
+					</div></router-link>
+					<a href="join.html"><div v-if="!buyShop" class="pay">
+						立即购买
+					</div></a>
 				</div>
 				<div class="z_like">
 					<div class="z_collect">
@@ -182,7 +186,9 @@
 				bols: true,
 				bgbol1: false,
 				bgbol2: false,
-				bgbol3: false
+				bgbol3: false,
+				addShop:false,
+				buyShop:false
 			}
 		},
 		methods: {
@@ -304,16 +310,23 @@
 				this.bgbol2 = false;
 			},
 			comCollect: function() {
-				this.bols = !this.bols;
-				var collectS = document.getElementsByClassName("collectS");
-				if(!this.bols) {
-					collectS.text = "已收藏";
-					this.collectCont = collectS.text;
-				} else {
-					collectS.text = "收藏此商品";
-					this.collectCont = collectS.text;
-				}
+				
 			}
+		},
+		mounted(){
+
+			var userphone = localStorage.getItem("userphone");
+//			console.log(userphone);
+			if (userphone == null || userphone =="") {
+				this.addShop=false;
+				this.buyShop=false;
+			}else{
+				this.addShop=true;
+				this.buyShop=true;
+				
+			}
+			
+
 		}
 
 	}
@@ -560,6 +573,7 @@
 		text-align: center;
 		/*css鼠标手势*/
 		cursor: pointer;
+		color: white;
 	}
 	
 	.z_like {
