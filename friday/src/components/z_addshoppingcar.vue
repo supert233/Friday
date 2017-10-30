@@ -77,15 +77,17 @@
 				this.bgbol1=false;
 				this.bgbol2=false;
 			}
+			
+			
   		},
-  			mounted(){
+  		mounted(){
 			var userphone = localStorage.getItem("userphone");
-
 			if (userphone == null || userphone =="") {
 				this.addShop=false;				
 			}else{
 				this.addShop=true;				
-			}			
+			}
+			
 		}
   			
   	}
