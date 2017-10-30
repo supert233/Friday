@@ -3,7 +3,9 @@
 		<!--分类-->
 		<div class="p_sort">
 			您的当前位置 :
-			<span>首页 ></span>
+			<span>首页 > </span>
+			<span>{{oneweb}}</span>
+			<span> > {{twoweb}}</span>
 		</div>
 		<!--一级分类-->
 		<div class="p_fir">
@@ -43,20 +45,20 @@
 		<div class="p_content">
 			<ul>
 				<li>
-					<img src="img/sort1.jpg" alt="" />
-					<img src="img/shopping.png" alt="" class="p_shop" />
+					<img src="../pages/index/assets/sort1.jpg" alt="" />
+					<img src="../pages/index/assets/shopping.png" alt="" class="p_shop" />
 				</li>
 				<li>
-					<img src="img/sort2.jpg" alt="" />
-					<img src="img/shopping.png" alt="" class="p_shop" />
+					<img src="../pages/index/assets/sort2.jpg" alt="" />
+					<img src="../pages/index/assets/shopping.png" alt="" class="p_shop" />
 				</li>
 				<li>
-					<img src="img/sort3.jpg" alt="" />
-					<img src="img/shopping.png" alt="" class="p_shop" />
+					<img src="../pages/index/assets/sort3.jpg" alt="" />
+					<img src="../pages/index/assets/shopping.png" alt="" class="p_shop" />
 				</li>
 				<li>
-					<img src="img/sort4.jpg" alt="" />
-					<img src="img/shopping.png" alt="" class="p_shop" />
+					<img src="../pages/index/assets/sort4.jpg" alt="" />
+					<img src="../pages/index/assets/shopping.png" alt="" class="p_shop" />
 				</li>
 			</ul>
 		</div>
@@ -64,6 +66,23 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+			}
+		},
+		computed:{
+			twoweb(){
+				return this.$store.state.twoweb
+			},
+			oneweb(){
+				return this.$store.state.oneweb
+			},
+			
+		},
+		
+	}
+	
 </script>
 
 <style>

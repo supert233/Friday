@@ -72,21 +72,21 @@
 				</ul>
 				<!--分类内容-->
 				<ul v-if="fir" @mouseleave="hide()" @mouseenter="show1()"  class="k_classes">
-					<li class="k_sonCla" @mouseenter="list1()"><img src="../pages/index/assets/水果.png" alt="" />新鲜水果
+					<router-link to="/ktwoweb"><li class="k_sonCla"  @mouseenter="list1($event)"><img src="../pages/index/assets/水果.png" alt="" />新鲜水果
 						
-					</li>
-					<li class="k_sonCla" @mouseenter="list2()"><img src="../pages/index/assets/海鲜优选.png" alt="" />生猛海鲜</li>
-					<li class="k_sonCla" @mouseenter="list3()"><img src="../pages/index/assets/肉.png" alt="" />肉类家禽</li>
-					<li class="k_sonCla" @mouseenter="list4()"><img src="../pages/index/assets/牛奶.png" alt="" />蛋奶素食</li>
-					<li class="k_sonCla" @mouseenter="list5()"><img src="../pages/index/assets/蔬菜.png" alt="" />田园蔬菜</li>
-					<li class="k_sonCla" @mouseenter="list6()"><img src="../pages/index/assets/零食1.png" alt="" />零食酒水</li>
-					<li class="k_sonCla" @mouseenter="list7()"><img src="../pages/index/assets/粮油.png" alt="" />粮油杂货</li>
-					<li class="k_sonCla" @mouseenter="list8()"><img src="../pages/index/assets/礼盒.png" alt="" />礼品卡卷</li>
-					<li class="k_sonCla" @mouseenter="list9()"><img src="../pages/index/assets/家居日用 (1).png" alt="" />家具用品</li>
+					</li></router-link>
+					<router-link to="/ktwoweb"><li class="k_sonCla" @mouseenter="list2($event)"><img src="../pages/index/assets/海鲜优选.png" alt="" />生猛海鲜</li></router-link>
+					<router-link to="/ktwoweb"><li class="k_sonCla" @mouseenter="list3($event)"><img src="../pages/index/assets/肉.png" alt="" />肉类家禽</li></router-link>
+					<router-link to="/ktwoweb"><li class="k_sonCla" @mouseenter="list4($event)"><img src="../pages/index/assets/牛奶.png" alt="" />蛋奶素食</li></router-link>
+					<router-link to="/ktwoweb"><li class="k_sonCla" @mouseenter="list5($event)"><img src="../pages/index/assets/蔬菜.png" alt="" />田园蔬菜</li></router-link>
+					<router-link to="/ktwoweb"><li class="k_sonCla" @mouseenter="list6($event)"><img src="../pages/index/assets/零食1.png" alt="" />零食酒水</li></router-link>
+					<router-link to="/ktwoweb"><li class="k_sonCla" @mouseenter="list7($event)"><img src="../pages/index/assets/粮油.png" alt="" />粮油杂货</li></router-link>
+					<router-link to="/ktwoweb"><li class="k_sonCla" @mouseenter="list8($event)"><img src="../pages/index/assets/礼盒.png" alt="" />礼品卡卷</li></router-link>
+					<router-link to="/ktwoweb"><li class="k_sonCla" @mouseenter="list9($event)"><img src="../pages/index/assets/家居日用 (1).png" alt="" />家具用品</li></router-link>
 				</ul>
 				<!--二级内容-->
 				<ul v-if="sec" @mouseleave="hide()" @mouseenter="show1()" class="k_twocla">
-					<li v-for="item in arrs">{{item}}</li>
+					<router-link to="/ktwoweb"><li @click="k_list($event)" v-for="item in arrs">{{item}}</li></router-link>
 				</ul>
 			</div>
 		</div>
@@ -130,7 +130,8 @@
 				arr8:["礼盒","休闲零食","甜点干果"],
 				arr9:["实木沙发","高级壁纸"],
 				arrs:"",
-				inputTxt:""
+				inputTxt:"",
+				
 			}
 		},
 		computed: {
@@ -179,39 +180,60 @@
 				this.cityVal = selects[0].value + selects[1].value
 				this.cityBol = false;
 			},
-			list1:function(){
-				this.arrs=this.arr1
+			list1:function(e){
+				this.arrs=this.arr1;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
-			list2:function(){
-				this.arrs=this.arr2
+			list2:function(e){
+				this.arrs=this.arr2;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
-			list3:function(){
-				this.arrs=this.arr3
+			list3:function(e){
+				this.arrs=this.arr3;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
 			
-			list4:function(){
-				this.arrs=this.arr4
+			list4:function(e){
+				this.arrs=this.arr4;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
-			list5:function(){
-				this.arrs=this.arr5
+			list5:function(e){
+				this.arrs=this.arr5;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
-			list6:function(){
-				this.arrs=this.arr6
+			list6:function(e){
+				this.arrs=this.arr6;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
-			list7:function(){
-				this.arrs=this.arr7
+			list7:function(e){
+				this.arrs=this.arr7;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
-			list8:function(){
-				this.arrs=this.arr8
+			list8:function(e){
+				this.arrs=this.arr8;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
-			list9:function(){
-				this.arrs=this.arr9
+			list9:function(e){
+				this.arrs=this.arr9;
+				var oneweb = e.target.innerText;
+				this.$store.commit('oneAuthor',oneweb)
 			},
 			//退出登录
 			deleauser:function(){
 				localStorage.removeItem('userphone');
+			},
+			k_list:function(e){
+				var e = e.target;
+				this.$store.commit('newAuthor',e.innerText)
 			}
-			
 			
 		},
 		mounted(){
@@ -414,10 +436,9 @@ body,div,img,input,ul,li,span,img{
 		/*display: none;*/
 	}	
 	/*头部选择后样式*/
-	.router-link-active{
+	.k_nav .router-link-active{
 		background-color: #f08200;
-		border-color:#f08200 ;	
-		
+		border-color:#f08200 ;			
 	}
 	
 	/*选择城市*/

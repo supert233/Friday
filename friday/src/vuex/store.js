@@ -7,12 +7,17 @@ const store = new Vuex.Store({
   // 定义状态
   state: {
     author: '',
-    userid:''
+    twoweb:'',
+    oneweb:''
   },
   mutations:{
   	newAuthor(state,msg){
-  		state.author=msg
+  		state.twoweb=msg
+  	},
+  	oneAuthor(state,msg){
+  		state.oneweb=msg
   	}
+  	
   }
 })
 
