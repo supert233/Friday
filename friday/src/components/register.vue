@@ -27,10 +27,10 @@
 						<span>退出</span>
 					</li>
 					<li>
-						<span>我的订单</span>
+						<span><router-link to="/s_myorder">我的订单</router-link></span>
 					</li>
 					<li>
-						<span>我的消息</span>
+						<span><router-link to="/s_massage">我的消息</router-link></span>
 					</li>
 					<li>
 						<span>我是商家</span>
@@ -44,7 +44,7 @@
 		</div>
 		<!--logo-->
 		<div class="k_register">
-			<img src="../pages/join/assets/logo.png" alt="" />
+			<a href="/index.html"><img src="../pages/join/assets/logo.png" alt="" /></a>
 			<span>{{regCon}}</span>
 		</div>
 		<!--内容-->
@@ -87,11 +87,15 @@
 						<img src="../pages/index/assets/icon5.png" alt="" />
 						<span @click="onBol1()">账号密码登录</span>
 					</div>
-					<input class="v_regInp" type="text" placeholder="请输入手机号" v-model="username" @blur="truePhone()"/>
+					<input class="v_regInp" type="text" placeholder="请输入手机号" v-model="username"  @blur="isphone()"/>
+					<span v-if="arephone"  style="margin-left:40px; color: red;font-size: 12px; position: absolute;top: 120px;">请输入正确的手机号</span>
+					
+					
 					<div class="p_verify">
-						<input class="p_code" type="text" placeholder="验证码" />
+						<input class="p_code2" type="text" placeholder="验证码" />
 						<img src="../pages/join/assets/yanzheng.png" alt="" />
 						<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
+						<span v-if="varcode2" class="varcode" style="top: 200px; left: 40px;">请输入正确的验证码</span>
 					</div>
 					<div class="p_phone">
 						<input class="v_regInp" type="text" placeholder="手机验证码" />
@@ -100,6 +104,7 @@
 					<!--用户协议-->
 					<div class="p_user">
 						<input type="checkbox" name="" id="" value="" /> 自动登录
+						<span style="float: right; color:#f08200 ;text-decoration: underline;">忘记密码</span>
 					</div>
 					<button @click="regbol()" class="p_btn3">注册</button>
 					<button class="p_btn4" @click="longIn()">登录</button>
@@ -121,16 +126,19 @@
 						<img src="../pages/index/assets/icon5.png" alt="" />
 						<span @click="onBol2()">手机验证登录</span>
 					</div>
-					<input class="v_regInp" type="text" placeholder="请输入手机号" v-model="username"/>
-					<input class="p_pass" type="text" placeholder="密码" />
+					<input class="v_regInp" type="text" placeholder="请输入手机号" v-model="username" @blur="isphone()"/>
+					<span v-if="arephone"  style="margin-left:40px; color: red;font-size: 12px; position: absolute;top: 120px;">请输入正确的手机号</span>
+					<input class="p_pass" type="text" placeholder="密码" v-model="password3" />
 					<div class="p_verify">
-						<input class="p_code" type="text" placeholder="验证码" />
+						<input class="p_code3" type="text" placeholder="验证码" />
 						<img src="../pages/join/assets/yanzheng.png" alt="" />
 						<span style="font-size: 12px;display: block;height: 42px; line-height: 42px;color: #f08200;">    看不清,换一张</span>
+						<span v-if="varcode3" class="varcode" style="top: 270px; left: 180px;">请输入正确的验证码</span>
 					</div>					
 					<!--用户协议-->
 					<div class="p_user p_onCon">
 						<input type="checkbox" name="" id="" value="" /> 自动登录
+						<span style="float: right; color:#f08200 ;text-decoration: underline;">忘记密码</span>
 					</div>
 					<button @click="regbol()" class="p_btn3">注册</button>
 					<button class="p_btn4" @click="longIn()">登录</button>
@@ -168,13 +176,17 @@
 				truePhone:false,
 				truepas:false,
 				varcode:false,
+				varcode2:false,
+				varcode3:false,
 				userIn:false,
 				poff:false,
 				pon:true,
+				arephone:false,
 				note:"asrdasfa",
 				username:"",
 				password1:"",
 				password2:"",
+				password3:"",
 				cityVal:"河南省郑州市",
 				regCon:"会员登录",				
 			}
@@ -286,8 +298,41 @@
 			//登录
 			longIn: function() {
 				if(this.poff){
+					var verInp3 = document.getElementsByClassName("p_code3")[0];
+					var verTrue = verInp3.value.toLocaleLowerCase();
+					if(verTrue != "xqcr"){
+						this.varcode3=true
+					}else{
+						this.varcode3=false;
+						this.$http.post('/api/user/findUser',{
+						username:this.username,
+						password:this.password3,
+						
+						},{emulateJSON:true}).then(function(res){
+							var keys=res.body.err;
+							console.log(res);
+							if(keys == 1){
+//								window.open("http://localhost:8000/index.html");
+								window.location.href="/index.html";
+//								console.log("登录成功")
+							}else{
+//								console.log("用户名或密码错误")
+								alert("用户名或密码错误")
+							}
+						})
+
+					}
+
 					console.log("账号密码登录")
 				}else{
+					var verInp2 = document.getElementsByClassName("p_code2")[0];
+					var verTrue = verInp2.value.toLocaleLowerCase();
+					if (verTrue != "xqcr") {
+						this.varcode2=true
+					}else{
+						this.varcode2=false;
+						window.location.href="/index.html";
+					}
 					console.log("手机登录")
 				}
 				
@@ -334,10 +379,17 @@
 			onBol2:function(){
 				this.pon=true;
 				this.poff=false;
-//				var Kon = document.getElementsByClassName("p_on")[0];
-//				var Koff = document.getElementsByClassName("p_off")[0];
-//				Kon.style.display = "block";
-//				Koff.style.display = "none";
+			},
+			//登录时判断是否是手机号
+			isphone:function(){
+				var reg=/^1[3578][0-9]{9}$/;
+				
+//				var phoneIndexs = this.username;
+				if(!reg.test(this.username)){
+					this.arephone=true;
+				}else{
+					this.arephone=false;
+				}
 			}
 		},	
 	}
