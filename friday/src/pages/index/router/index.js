@@ -87,6 +87,11 @@ export default new Router({
 	    	component: Zdetail
     },
      {
+	    	path:'/ktwoweb',
+	    	name:'ktwoweb',
+	    	component: K_twoweb
+   	 }, 
+     {
       path: '/join.html',
       name: 'register',
       component: Register,

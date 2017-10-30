@@ -11,7 +11,7 @@
 			<!--分类 二级跳转-->
 			<div class="k_sort">
 				<span>分类:</span>
-				<ul>
+				<ul>					
 					<li>全部</li>
 					<li>餐饮</li>
 					<li>酒店</li>
@@ -61,7 +61,7 @@
 		name:"k_local",
 		components:{
 			slider
-		}
+		},
 	}
 </script>
 
