@@ -1,5 +1,5 @@
 <template>
-	<div class="z_addshoppingcar">
+	<div class="z_addshoppingcar">		
 		<div class="z_shoppingBox">
 			<span class="z_shoppingWeight">请选择产品规格</span>
 			<div class="z_shoppingCont">
@@ -85,9 +85,11 @@
 		background-color:green;
 	}
 	.z_shoppingBox {
+		position: relative;
 		border: 5px solid #e2e2e2;
 		width: 676px;
 		height: 400px;
+		background-color: white;
 	}
 	.z_shoppingBox .z_shoppingWeight {
 		display: block;
@@ -171,5 +173,6 @@
 		
 		
 	}
+	
 		
 </style>

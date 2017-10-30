@@ -4,7 +4,7 @@
   		<div class="s_uhome_le">
   			<div class="Person_center"><span>个人中心</span></div>
   			<ul class="s_uhome_le_list">
-  				<li>交易管理  <span>></span>   </li>
+  				<li>交易管理  <span>></span></li>
   				<li  @click="show()" ><router-link to="/users">我的账户</router-link></li>
   				
   				<li  @click="show()" ><router-link to="/s_myorder">我的订单</router-link></li>
