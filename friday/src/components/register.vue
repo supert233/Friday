@@ -297,7 +297,7 @@
 			},
 			//登录
 			longIn: function() {
-				if(this.poff){
+				if(this.poff){ 
 					var verInp3 = document.getElementsByClassName("p_code3")[0];
 					var verTrue = verInp3.value.toLocaleLowerCase();
 					if(verTrue != "xqcr"){
@@ -313,6 +313,9 @@
 							console.log(res);
 							if(keys == 1){
 //								window.open("http://localhost:8000/index.html");
+								this.$store.commit('newAuthor', this.username);
+								//this.$store.state.author = this.username;
+								localStorage.setItem("userphone", this.username)
 								window.location.href="/index.html";
 //								console.log("登录成功")
 							}else{
@@ -330,16 +333,29 @@
 					if (verTrue != "xqcr") {
 						this.varcode2=true
 					}else{
+						this.$http.post('/api/user/findUserp',{
+						username:this.username,
+
+						},{emulateJSON:true}).then(function(res){
+							var keys=res.body.err;
+								console.log(res);
+								if(keys == 1){
+									this.$store.commit('newAuthor', this.username);
+									localStorage.setItem("userphone", this.username)
+									window.location.href="/index.html";
+								}else{
+	//								console.log("用户名或密码错误")
+									alert("这位客官,您的号码还没有注册,请注册后登录")
+								}
+							})
 						this.varcode2=false;
-						window.location.href="/index.html";
+//						window.location.href="/index.html";
 					}
 					console.log("手机登录")
 				}
 				
 				
-				this.$store.commit('newAuthor', this.username);
-				//this.$store.state.author = this.username;
-				localStorage.setItem("userphone", this.username)
+				
 			},	
 			//验证是否同意条款
 			agree:function(){
