@@ -14,7 +14,7 @@
 			<div class="z_footMid">
 				<div class="z_midCont">
 					<div class="z_logo">
-						<img src="../pages/index/assets/z_logo.png" alt="" class="logeImg"/>
+						<a href="/index.html"><img src="../pages/index/assets/z_logo.png" alt="" class="logeImg"/></a>
 						<p>服务时间 : 08 : -22:00
 							<img src="../pages/index/assets/z_phone.png" class="phoneImg"/>
 							<span>400-800-8820</span>

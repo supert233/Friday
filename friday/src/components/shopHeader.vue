@@ -12,17 +12,19 @@
 				</div>
 				<!--登录信息-->
 				<ul class="k_msgOn">
-					<li>
-						您好 ,
-						<!--后台传入的登录名-->
-						<div class="login">17701269859</div>
-						<span>退出</span>
+					<li v-if="nouser"><a href="/join.html">登录</a></li>
+					<li v-if="nouser"><a href="/join.html">注册</a></li>
+					<li v-if="hasuser">
+							您好 ,
+							
+						<div class="login">{{author}}</div>
+						<span @click="deleauser"><a href="/join.html">退出</a></span>
 					</li>
 					<li>
-						<span>我的订单</span>
+						<span><router-link to="/s_myorder">我的订单</router-link></span>
 					</li>
 					<li>
-						<span>我的消息</span>
+						<span><router-link to="/s_massage">我的消息</router-link></span>
 					</li>
 					<li>
 						<span>我是商家</span>
@@ -37,7 +39,7 @@
 		</div>
 		<!--头部logo-->
 		<div class="k_logo">
-			<img src="../pages/index/assets/logo.png" alt="" />
+			<a href="/index.html"><img src="../pages/index/assets/logo.png" alt="" /></a>
 			<div>
 				<span>我的购物车</span>&nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;
 				<span>确认订单信息</span>&nbsp;&nbsp;&nbsp; > &nbsp;&nbsp;&nbsp;
@@ -48,6 +50,42 @@
 </template>
 
 <script>
+	export default{
+		name:"shopHeader",
+		data(){
+			return{
+				hasuser:false,
+				nouser:true,
+			}
+		},
+		methods:{
+			//退出登录
+			deleauser:function(){
+				localStorage.removeItem('userphone');
+			}
+		},
+		computed: {
+		      author () {
+		        return this.$store.state.author
+		      }
+		   },
+		mounted(){
+
+			var userphone = localStorage.getItem("userphone");
+			console.log(userphone);
+			if (userphone == null) {
+				this.nouser=true;
+				this.hasuser=false;
+			}else{
+				this.nouser=false;
+				this.hasuser=true;
+				this.$store.commit('newAuthor',userphone);
+			}
+			
+
+		}
+		
+	}
 </script>
 
 <style>

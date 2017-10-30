@@ -30,10 +30,12 @@
 							<span @click="deleauser"><a href="/join.html">退出</a></span>
 						</li>
 						<li>
-							<span><router-link to="/s_myorder">我的订单</router-link></span>
+							<span v-if="hasuser"><router-link to="/s_myorder">我的订单</router-link></span>
+							<span v-if="nouser"><a href="/join.html">我的订单</a></span>
 						</li>
 						<li>
-							<span><router-link to="/s_massage">我的消息</router-link></span>
+							<span v-if="hasuser"><router-link to="/s_massage">我的消息</router-link></span>
+							<span v-if="nouser"><a href="/join.html">我的消息</a></span>
 						</li>
 						<li>
 							<span>我是商家</span>
@@ -48,7 +50,7 @@
 			</div>
 			<!--头部内容-->
 			<div class="k_headerCon">
-				<img class="k_logo" src="../pages/index/assets/logo.png" alt="" />
+				<a href="index.html"><img class="k_logo" src="../pages/index/assets/logo.png" alt="" /></a>
 				<!--输入框-->
 				<div class="k_input">
 					<input type="text" placeholder="请输入关键字进行搜索" v-model="inputTxt"/>
@@ -59,8 +61,10 @@
 					<span>山竹</span>
 					<span>牛油果</span>					
 				</div>
-				<a href="shopping.html"><div class="k_perCen"><img src="../pages/index/assets/ico2.png" alt="" />购物车</div></a>
-				<router-link to="/users"><div class="k_perCen"><img src="../pages/index/assets/ico1.png" alt="" />个人中心</div></router-link>	
+				<a href="/join.html"><div class="k_perCen" v-if="nouser"><img src="../pages/index/assets/ico2.png" alt="" />购物车</div></a>
+				<a href="shopping.html"><div class="k_perCen" v-if="hasuser"><img src="../pages/index/assets/ico2.png" alt="" />购物车</div></a>
+				<router-link to="/users"><div class="k_perCen" v-if="hasuser"><img src="../pages/index/assets/ico1.png" alt="" />个人中心</div></router-link>
+				<a href="/join.html"><div class="k_perCen" v-if="nouser"><img src="../pages/index/assets/ico1.png" alt="" />个人中心</div></a>
 				<!--导航条-->
 				<ul class="k_nav">
 					<li @mouseleave="hide()" @mouseenter="show()" class="k_all"><span>全部分类</span></li>
@@ -240,7 +244,7 @@
 
 			var userphone = localStorage.getItem("userphone");
 			console.log(userphone);
-			if (userphone == null) {
+			if (userphone == null || userphone =="") {
 				this.nouser=true;
 				this.hasuser=false;
 			}else{

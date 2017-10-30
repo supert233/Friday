@@ -158,7 +158,7 @@
 					<span class="z_price">¥{{shoppingPrice}}</span>
 					<!--数量-->
 					<div class="z_num">
-						<span class="down" >-</span>
+						<span class="down">-</span>
 						<input type="text" placeholder="1" readonly  v-model="shoppingNum"/>
 						<span class="up">+</span>
 					</div>

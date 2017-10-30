@@ -517,7 +517,7 @@
 		font-weight: 600;
 		border: 1px solid #999;
 		font-size: 25px;
-		/*清除*/
+		/*清除空格*/
 		float: left;
 		/*css鼠标手势*/
 		cursor: pointer;
@@ -530,7 +530,7 @@
 		line-height: 28px;
 		border: 1px solid #999;
 		outline: none;
-		/*清除*/
+		/*清除空格*/
 		float: left;
 	}
 	
