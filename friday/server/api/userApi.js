@@ -66,5 +66,47 @@ router.post('/findUser', function(req,res) {
     })
 
 });
+//手机登录
+router.post('/findUserp', function(req,res) {
+//  var sql = $sql.user.add;
+//  var finduser = $sql.user.finduser;
+    var params = req.body;
+    var act = params.type;
+    var usernames = params.username;
+    var passwords = params.password;
+//  console.log(params);
+	conn.query('SELECT * FROM user WHERE username='+usernames+' ', function(err, rows,result) {
+        if (rows == "" || rows == undefined) {
+//          console.log(err); 
+            res.send('{"err":0}');    
+        }else {
+//	        res.send(rows);
+	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+//个人中心
+router.post('/findUsermsg', function(req,res) {
+//  var sql = $sql.user.add;
+//  var finduser = $sql.user.finduser;
+    var params = req.body;
+    var act = params.type;
+    var usernames = params.username;
+//  var passwords = params.password;
+//  console.log(params);
+	conn.query('SELECT * FROM user WHERE username='+usernames+' ', function(err, rows,result) {
+        if (rows == "" || rows == undefined) {
+//          console.log(err); 
+            res.send('{"err":0}');    
+        }else {
+	        res.send(rows);
+//	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
 
 module.exports = router;
