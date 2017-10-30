@@ -253,9 +253,10 @@
 			</ul>
 			
 		</div>
-		<!--规格框-->
+		<!--规格框 子组件-->
+		<!--购物车弹出框的背景-->
 		<div @click="hidden()" v-if="hiddenBol" class="k_weight"></div>
-		<div class="k_weights" v-if="hiddenBol" @click="k_show()">
+		<div class="k_weights" v-if="hiddenBol">
 			<router-view></router-view>
 		</div>
 	</div>

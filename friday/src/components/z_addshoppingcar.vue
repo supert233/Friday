@@ -170,9 +170,5 @@
 		color:white;
 		font-size: 18px;
 		margin-top:40px;
-		
-		
 	}
-	
-		
 </style>
