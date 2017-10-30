@@ -8,7 +8,8 @@ const store = new Vuex.Store({
   state: {
     author: '',
     twoweb:'',
-    oneweb:''
+    oneweb:'',
+    allweb:''
   },
   mutations:{
   	newAuthor(state,msg){
@@ -19,6 +20,9 @@ const store = new Vuex.Store({
   	},
   	twoAuthor(state,msg){
   		state.twoweb=msg
+  	},
+  	allAuthor(state,msg){
+  		state.allweb=msg
   	}
   	
   }

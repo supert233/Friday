@@ -1,5 +1,9 @@
 <template>
 	<div>
+		<div class="shoppingImg">
+			<img src="../pages/index/assets/image/goshopping.png" alt="" />
+			<span>购物车</span>
+		</div>
 		<!--空购物车-->
 		<div class="p_noshop" v-if="shopBol">
 			<div>
@@ -11,20 +15,20 @@
 		<!--有东西的购物车-->
 			<!--商品信息-->
 		<div class="z_commodity" v-if="!shopBol">
-			<span>商品信息</span>
 			<div class="z_comContent">
 				<!--商品信息-->
 				<div class="z_comMenu">
-					<span class="shop">爱果果水果店</span>
+					<input type="checkbox" class="inputBox"/><span class="shop">爱果果水果店</span>
 					<span>规格</span>
 					<span class="price">单价</span>
 					<span class="many">数量</span>
 					<span class="money">金额</span>
+					<span class="delete">操作</span>
 				</div>
 				<!--具体商品-->
 				<div class="z_oneCont">
 					<div class="z_left">
-						<img src="../pages/index/assets/introImg4.jpg" alt="" />
+						<input type="checkbox" /><img src="../pages/index/assets/introImg4.jpg" alt="" />
 						<span class="z_mz">新疆哈密瓜500g</span>
 					</div>
 					<!--规格-->
@@ -34,20 +38,22 @@
 					<!--数量-->
 					<div class="z_num">
 						<span class="down" @click="inputMinus()">-</span>
-						<input type="text" placeholder="0" readonly class="inputNum"/>
+						<input type="text" placeholder="1" readonly class="inputNum"/>
 						<span class="up" @click="inputAdd()">+</span>
 					</div>
 					<!--金额-->
 					<span class="z_money">¥20</span>
+					<!--操作-->
+					<span class="z_delete">删除</span>
+					
 				</div>
 				<div class="z_sum">
-					<span>运费</span>
-					<span class="red">¥0</span>
 					<span>商品金额</span>
 					<span class="red">¥20</span>
-					<span>商品合计</span>
-					<span class="red">¥20</span>
 				</div>
+			</div>
+			<div class="z_comSum">
+				<span class="z_all1 z_all">全选</span><span class="z_all">批量删除</span><span class="comall">商品总计</span><span class="z_needPay">¥20</span><span class="onceShopping">立即购买</span>
 			</div>
 		</div>
 	</div>
@@ -121,11 +127,19 @@
 		outline: none;
 		border-radius: 4px;
 	}
-	
+	.shoppingImg{
+		width:1280px;
+		margin:0 auto;
+		margin-top:18px;
+		margin-bottom: 20px;
+	}
+	.shoppingImg span{
+		margin-left:10px;
+	}
 	/*商品信息*/
 	.z_commodity {
 		width: 1280px;
-		margin: 0 auto;
+		margin: 10px auto 0;
 	}
 	/*两次使用*/
 	.z_comContent {
@@ -138,19 +152,29 @@
 		background-color: #f2f2f2;
 		line-height: 46px;
 	}
+	.z_comMenu .inputBox{
+		width:14px;
+		height: 14px;
+		margin-left:20px;
+		margin-right:20px;
+	
+	}
 	.z_comMenu .shop {
-		margin-left: 50px;
 		margin-right: 300px;
 	}
 	.z_comMenu .price,
 	.many,
-	.money {
+	.money,
+	.delete {
 		margin-left: 144px;
 	}
 	.z_left {
 		/*margin-top: 20px;*/
 		margin-left: 25px;
 		display: inline-block;
+	}
+	.z_left input{
+		margin-right:10px;
 	}
 	.z_left .z_mz {
 		display: inline-block;
@@ -194,7 +218,7 @@
 	}
 	.z_num input {
 		width: 46px;
-		height: 24px;
+		height: 26px;
 		text-align: center;
 		font-size: 15px;
 		float: left;
@@ -203,6 +227,13 @@
 	}
 	.z_oneCont .z_money {
 		margin-left: 120px;
+	}
+	.z_oneCont .z_delete{
+		margin-left: 135px;
+		color:#55964a;
+		/*css鼠标手势*/
+		cursor: pointer;
+		
 	}
 	.z_sum {
 		/*display: inline-block;*/
@@ -217,5 +248,38 @@
 		margin-left: 10px;
 		margin-right: 10px;
 		font-size: 18px;
+	}
+	.z_comSum{
+		margin-top:40px;
+		margin-bottom: 10px;
+	}
+	.z_comSum .z_all{
+		color:#55964a;
+		/*css鼠标手势*/
+		cursor: pointer;
+		
+	}
+	.z_comSum .z_all1{
+		margin-right: 45px;
+		margin-left:24px;
+	}
+	.z_comSum .z_needPay{
+		color:red;
+		font-size: 20px;
+		margin-left:10px;
+		margin-right: 15px;
+	}
+	.z_comSum .comall{
+		margin-left: 840px;
+	}
+	.z_comSum .onceShopping{
+		display: inline-block;
+		background-color: #f08200;
+		width:150px;
+		line-height:50px;
+		border:none;
+		border-radius: 5px;
+		text-align: center;
+		color:white;
 	}
 </style>
