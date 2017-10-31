@@ -9,9 +9,7 @@ const store = new Vuex.Store({
     author: '',
     twoweb:'',
     oneweb:'',
-
     allweb:'',
-
     truename:'',
     userid:'',
     myscore:'',

@@ -5,19 +5,19 @@
 		<div class="s_changeBody">
 			<div v-if="changety1" class="s_changeTy1">
 				<img src="../pages/index/assets/changphone1.png" class="s_changeHp"/>
-				<input type="text" name="" id="" value="" />
+				<input type="text" name="" id="" value=""  v-model="userpho"/>
 				<div class="s_change_ver">
 					<input type="text" name="" id="" value=""  placeholder="验证码" class="verInp"/>
 					<img src="../pages/index/assets/图片验证.png"/>
 					<span>看不清换一张</span>
 				</div>
 				<span v-if="vertyp" class="varMas">您的验证码输入有误,请重新输入!</span>
-				<input type="text" name="" id="" value="" placeholder="输入密码验证身份"/>
+				<input type="text" name="" id="" value="" placeholder="输入密码验证身份" v-model="passwo"/>
 				<button @click="ver" class="nexBtn">提交验证</button>
 			</div>
 			<div v-if="changety2" class="s_changeTy1">
 				<img src="../pages/index/assets/changphone2.png" class="s_changeHp"/>
-				<input type="text" name="" id="" value=""  placeholder="请输入手机号"/>
+				<input type="text" name="" id="" value=""  placeholder="请输入手机号" v-model="newphone"/>
 				<div class="s_change_ver">
 					<input type="text" name="" id="" value=""  placeholder="验证码" class="verInp"/>
 					<img src="../pages/index/assets/图片验证.png"/>
@@ -50,17 +50,41 @@
 				changety2:false,
 				changety3:false,
 				code:Math.floor(Math.random()*9000)+1000,
+				userpho:"",
+				passwo:"",
+				newphone:""
 			}
+		},
+		computed:{
+			userphone () {
+	        return this.$store.state.userphone
+	      },
+		},
+		mounted(){
+			
+			this.userpho = this.$store.state.userphone
 		},
 		methods:{
 			ver:function(){
 				var verInp = document.getElementsByClassName("verInp")[0];
 				var verTrue = verInp.value.toLocaleLowerCase();
 				if (verTrue == "xqcr") {
-					this.changety1=false;
-					this.changety2=true;
-					this.changety3=false
-					
+					this.$http.post('/api/user/findUser',{
+						username:this.userpho,
+						password:this.passwo
+						
+					},{emulateJSON:true}).then(function(res){
+						var keys=res.body.err;
+						console.log(keys);
+						if (keys == 0) {
+							alert("账号或密码错误清重新输入")
+						}else{
+								this.changety1=false;
+								this.changety2=true;
+								this.changety3=false;
+								this.vertyp=false;
+						}
+					})
 				}else{
 					this.vertyp=true
 					
@@ -71,10 +95,32 @@
 				var verInp = document.getElementsByClassName("verInp")[0];
 				var verTrue = verInp.value.toLocaleLowerCase();
 				var phoneInp = document.getElementsByClassName("phoneInp")[0];
-				if (verTrue == "xqcr" || phoneInp.value == code ) {
-					this.changety1=false;
-					this.changety2=false;
-					this.changety3=true
+				var uid = localStorage.getItem("userid");
+				console.log(uid);
+				if (verTrue == "xqcr" ) {
+					this.$http.post('/api/user/changephone',{
+						userid:uid,
+						userphone:this.newphone
+						
+					},{emulateJSON:true}).then(function(res){
+						var keys=res.body.err;
+						console.log(keys);
+						if (keys == 0) {
+							alert("修改失败")
+						}else{
+								this.changety1=false;
+								this.changety2=false;
+								this.changety3=true
+						}
+					})
+					
+					
+					
+					
+					
+					
+					
+					
 					
 					
 				}else{
@@ -108,6 +154,7 @@
 	.s_changeBody{
 		height: 531px;
 		padding: 40px 40px 0 ;
+		position: relative;
 	}
 	.s_changeBody .s_changeTy1{
 		width: 712px;
@@ -127,6 +174,7 @@
 		background-color: #f9f9f9;
 		margin-bottom: 30px;
 		display: block;
+		font-size: 16px;
 	}
 	/*验证码*/
 	.s_change_ver{
@@ -153,6 +201,9 @@
 	.varMas{
 		font-size: 12px;
 		color: red;
+		position: absolute;
+		top: 250px;
+		left: 40px;
 	}
 	
 	.nexBtn {

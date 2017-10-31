@@ -25,7 +25,7 @@
 						<li v-if="nouser"><a href="/join.html">注册</a></li>
 						<li v-if="hasuser">
 							您好 ,							
-							<div class="login">{{author}}</div>
+							<div class="login">{{truename}}</div>
 							<span @click="deleauser"><a href="/join.html">退出</a></span>
 						</li>
 						<li>
@@ -135,12 +135,12 @@
 				arrs:"",
 				inputTxt:"",
 				allArr:[],
-				
+				allArrs:[],
 			}
 		},
 		computed: {
-		      author () {
-		        return this.$store.state.author
+		      truename () {
+		        return this.$store.state.truename
 		      }
 		   },
 //		 computed: {
@@ -187,17 +187,17 @@
 			list1:function(e){
 				this.arrs=this.arr1;
 				var oneweb = e.target.innerText;
-				this.$store.commit('oneAuthor',oneweb)
+				this.$store.commit('oneAuthor',oneweb);
 			},
 			list2:function(e){
 				this.arrs=this.arr2;
 				var oneweb = e.target.innerText;
-				this.$store.commit('oneAuthor',oneweb)
+				this.$store.commit('oneAuthor',oneweb);
 			},
 			list3:function(e){
 				this.arrs=this.arr3;
 				var oneweb = e.target.innerText;
-				this.$store.commit('oneAuthor',oneweb)
+				this.$store.commit('oneAuthor',oneweb);
 			},
 			
 			list4:function(e){
@@ -235,19 +235,24 @@
 				localStorage.removeItem('userphone');
 			},
 			k_list:function(e){
+				this.fir = false;
+				this.sec = false;
 				var e = e.target;
-				var a = e.parentNode.childNodes;
+				var a = e.parentNode.childNodes;				
 				for (var i = 0; i < a.length; i++) {
 					this.allArr.push(a[i].innerText);
-				}
+				};
+				this.allArrs = this.allArr;
+				this.allArr = [];
 				this.$store.commit('twoAuthor',e.innerText);
-				this.$store.commit('allAuthor',this.allArr);
+				this.$store.commit('allAuthor',this.allArrs);
 			}
 			
 		},
 		mounted(){
 
 			var userphone = localStorage.getItem("userphone");
+			var truename = localStorage.getItem("truename");
 			console.log(userphone);
 			if (userphone == null || userphone =="") {
 				this.nouser=true;
@@ -255,7 +260,7 @@
 			}else{
 				this.nouser=false;
 				this.hasuser=true;
-				this.$store.commit('newAuthor',userphone);
+				this.$store.commit('truename',truename);
 			}
 			
 

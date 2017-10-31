@@ -322,7 +322,7 @@
 //								console.log("用户名或密码错误")
 								this.$store.commit('truename', ids.username);
 								//this.$store.state.author = this.username;
-								localStorage.setItem("userphone", ids.username)
+								localStorage.setItem("userphone", ids.userphone)
 								localStorage.setItem("userid", ids.userid);
 								localStorage.setItem("truename", ids.username);
 								window.location.href="/index.html";
@@ -352,7 +352,7 @@
 	//								console.log("用户名或密码错误")
 								
 									this.$store.commit('truename', ids.username);
-									localStorage.setItem("userphone", ids.username);
+									localStorage.setItem("userphone", ids.userphone);
 									localStorage.setItem("userid", ids.userid);
 									localStorage.setItem("truename", ids.username);
 									window.location.href="/index.html";

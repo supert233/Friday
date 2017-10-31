@@ -10,7 +10,7 @@
 				<span>暂无收货地址,请点击</span>
 				<router-link to="/s_upaddress"><button>添加新地址</button></router-link>
 			</div>
-			<div v-if="addres_has" class="s_addr_has">
+			<div v-if="addres_has" class="s_addr_has" >
 				<div class="s_addr_tit">
 					<span>收货人</span>
 					<span>所在区域</span>
@@ -19,22 +19,22 @@
 					<span>备注</span>
 					<span>操作</span>
 				</div>
-				<div class="s_addr_mas">
-					<span>苏某人</span>
-					<span>河南省 郑州市 高新区</span>
-					<span>莲花街55号威科姆园区B座</span>
-					<span>12345678930</span>
+				<div class="s_addr_mas" v-for="item in adds">
+					<span>{{item.takename}}</span>
+					<span>{{item.takearea}}</span>
+					<span>{{item.detailaddress}}</span>
+					<span>{{item.phone}}</span>
 					<span>无</span>
-					<span><span>修改</span> | <span>删除</span></span>
+					<span><span>设置为默认地址</span> | <span>修改</span> | <span>删除</span></span>
 				</div>
-				<div class="s_addr_mas">
+				<!--<div class="s_addr_mas">
 					<span>苏某人</span>
 					<span>河南省 郑州市 高新区</span>
 					<span>莲花街55号威科姆园区B座</span>
 					<span>12345678930</span>
 					<span>无</span>
 					<span><span>设置为默认地址</span> | <span>修改</span> | <span>删除</span></span>
-				</div>
+				</div>-->
 			</div>
 		</div>
 	</div>
@@ -46,8 +46,27 @@
 		data(){
 			return{
 				addres_nu:false,
-				addres_has:true
+				addres_has:true,
+				adds:[],
 			}
+		},
+		mounted(){
+			var userid = localStorage.getItem("userid");
+			this.$http.post('/api/user/findaddress',{
+					userid:userid,
+				},{emulateJSON:true}).then(function(res){
+					var keys=res.body.err;
+					var addre = res.body
+					if(keys == 0){
+						this.addres_has=false;
+						this.addres_nu=true;
+					}else{
+					
+						this.adds=addre;
+//						console.log(this.adds);
+					}
+							
+				})
 		}
 	}
 </script>
@@ -108,6 +127,9 @@
 	}
 	.s_addr_null button{
 		margin: 0;
+	}
+	button:hover{
+		cursor: pointer;
 	}
 	/*有具体地址*/
 	.s_addr_has {

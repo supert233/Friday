@@ -45,11 +45,11 @@
 			<!--开始时间下面的轮播图-->
 			<ul class="v_binBan">
 				<li v-for="item in arr1">
-					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
+					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
-					<span class="v_bin2">果肉绵密 .......</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
-						<span>¥{{item.comprice}}</span>
+						<span>¥{{item.comprice}}.00</span>
 						<span>¥40.00</span>
 					</div>
 					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
@@ -70,11 +70,11 @@
 			<!--开始时间下面的轮播图-->
 			<ul class="v_binBan">
 				<li v-for="item in arr2">
-					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
+					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
-					<span class="v_bin2">果肉绵密 .......</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
-						<span>¥{{item.comprice}}</span>
+						<span>¥{{item.comprice}}.00</span>
 						<span>¥40.00</span>
 					</div>
 					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
@@ -95,11 +95,11 @@
 			
 			<ul class="v_binBan">
 				<li v-for="item in arr3">
-					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
+					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
-					<span class="v_bin2">果肉绵密 .......</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
-						<span>¥{{item.comprice}}</span>
+						<span>¥{{item.comprice}}.00</span>
 						<span>¥40.00</span>
 					</div>
 					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
@@ -121,11 +121,11 @@
 			<ul class="v_binBan v_foots">
 				
 				<li v-for="item in arr4">
-					<router-link to="/Zdetail"><img src="../pages/index/assets/special15.png" alt="" /></router-link>
+					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
-					<span class="v_bin2">果肉绵密 .......</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
-						<span>¥{{item.comprice}}</span>
+						<span>¥{{item.comprice}}.00</span>
 						<span>¥40.00</span>
 					</div>
 					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
@@ -159,7 +159,8 @@
 				arr1:[],
 				arr2:[],
 				arr3:[],
-				arr4:[]
+				arr4:[],
+				
 			}
 		},
 		methods:{
@@ -205,20 +206,21 @@
 			this.$http.post('api/user/indexCons',{}, {emulateJSON: true}).then(function(res){
 
 				var allData = res.body;
-				console.log(allData)
+				//console.log(allData)
+				
 				for (var i=0; i< allData.length; i++) {
 					
 					switch (allData[i].comtype){
-						case "水果":
+						case "新鲜水果":
 							this.arr1.push(allData[i]);	
 							break;
-						case "海鲜":
+						case "生猛海鲜":
 							this.arr2.push(allData[i]);
 							break;
-						case "速食":
+						case "蛋奶素食":
 							this.arr3.push(allData[i]);
 							break;
-						case "禽蛋":
+						case "肉类家禽":
 							this.arr4.push(allData[i]);
 							
 							break;

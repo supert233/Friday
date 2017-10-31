@@ -110,20 +110,54 @@ router.post('/findUsermsg', function(req,res) {
 });
 //修改个人资料
 router.post('/changeuser', function(req,res) {
-//  var sql = $sql.user.add;
-//  var finduser = $sql.user.finduser;
     var params = req.body;
-   
     var userid = params.userid;
     var username = params.username;
     var sex = params.sex;
     var birthday = params.birthday;
-//  var passwords = params.password;
-//console.log(params);
-	conn.query('UPDATE user SET sex='+sex+',username='+username+',birthday='+birthday+'  WHERE userid='+userid, function(err, rows,result) {
-         console.log(rows);
+	conn.query("UPDATE user SET sex='"+sex+"',username='"+username+"',birthday='"+birthday+"'  WHERE userid='"+userid+"'", function(err, rows,result) {
+         
         if (rows == "" || rows == undefined) {
 
+
+            res.send('{"err":0}');    
+        }else {
+//	        res.send(rows);
+	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+//修改手机号
+router.post('/changephone', function(req,res) {
+    var params = req.body;
+    var userid = params.userid;
+    var userphone = params.userphone;
+    
+	conn.query("UPDATE user SET userphone='"+userphone+"'  WHERE userid='"+userid+"'", function(err, rows,result) {
+         
+        if (rows == "" || rows == undefined) {
+
+
+            res.send('{"err":0}');    
+        }else {
+//	        res.send(rows);
+	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+
+
+//地址查找
+router.post('/findaddress', function(req,res) {
+    var params = req.body;
+    var userid = params.userid;
+  console.log(params);
+	conn.query("SELECT * FROM address WHERE userid='"+userid+"'", function(err, rows,result) {
+        if (rows == "" || rows == undefined) {
 
             res.send('{"err":0}');    
         }else {
@@ -135,16 +169,53 @@ router.post('/changeuser', function(req,res) {
 
 });
 
-//首页获取数据
-router.post('/indexCons',function(req,res){
-	conn.query('SELECT * FROM commodity', function(err,rows){
-		if (rows=="" || rows == undefined) {
-			res.send('{"err":0}')
-		} else{
-			res.send(rows);
-		}
-	})
-})
+
+
+//新增地址
+router.post('/upaddress', function(req,res) {
+	var upadd = $sql.user.upadd;
+    var params = req.body;
+    var userid = params.userid;
+  console.log(params);
+	conn.query(upadd,[params.userid,params.takename,params.takearea,params.detailaddress,params.phone], function(err, rows,result) {
+        if (rows == "" || rows == undefined) {
+
+            res.send('{"err":0}');    
+        }else {
+	        res.send(rows);
+//	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+
+//修改密码
+router.post('/changepassword', function(req,res) {
+    var params = req.body;
+    var userid = params.userid;
+    var password = params.password;
+    
+	conn.query("UPDATE user SET password='"+password+"'  WHERE userid='"+userid+"'", function(err, rows,result) {
+         
+        if (rows == "" || rows == undefined) {
+
+
+            res.send('{"err":0}');    
+        }else {
+//	        res.send(rows);
+	        res.send('{"err":1}');
+            console.log(rows);
+        }
+    })
+
+});
+
+
+
+
+
+
 
 
 //首页获取数据
@@ -156,7 +227,11 @@ router.post('/indexCons',function(req,res){
 			res.send(rows);
 		}
 	})
-})
+});
+
+
+
+
 
 //首页获取数据
 router.post('/indexCons',function(req,res){
@@ -167,28 +242,8 @@ router.post('/indexCons',function(req,res){
 			res.send(rows);
 		}
 	})
-})
+});
 
-//首页获取数据
-router.post('/indexCons',function(req,res){
-	conn.query('SELECT * FROM commodity', function(err,rows){
-		if (rows=="" || rows == undefined) {
-			res.send('{"err":0}')
-		} else{
-			res.send(rows);
-		}
-	})
-})
 
-//首页获取数据
-router.post('/indexCons',function(req,res){
-	conn.query('SELECT * FROM commodity', function(err,rows){
-		if (rows=="" || rows == undefined) {
-			res.send('{"err":0}')
-		} else{
-			res.send(rows);
-		}
-	})
-})
 
 module.exports = router;
