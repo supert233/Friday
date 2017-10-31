@@ -12,6 +12,7 @@
 //	import Uhomes from "../.././components/Uhomes"
 	import Kheader from "../.././components/k_header"
 	import zFooter from "../.././components/z_footer"
+	
 export default {
   name: 'apps',
  components:{

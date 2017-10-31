@@ -45,7 +45,7 @@
 			<!--开始时间下面的轮播图-->
 			<ul class="v_binBan">
 				<li v-for="item in arr1">
-					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
+					<router-link to="/Zdetail"><img class="imgs1" :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
@@ -70,7 +70,7 @@
 			<!--开始时间下面的轮播图-->
 			<ul class="v_binBan">
 				<li v-for="item in arr2">
-					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
+					<router-link to="/Zdetail"><img class="imgs1" :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
@@ -95,7 +95,7 @@
 			
 			<ul class="v_binBan">
 				<li v-for="item in arr3">
-					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
+					<router-link to="/Zdetail"><img class="imgs1" :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
@@ -121,7 +121,7 @@
 			<ul class="v_binBan v_foots">
 				
 				<li v-for="item in arr4">
-					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
+					<router-link to="/Zdetail"><img class="imgs1" :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
@@ -348,6 +348,10 @@ body,div,img,input,ul,li,span,img{
 	position: absolute;
 	right: 20px;
 	bottom: 24px;
+}
+.v_binBan .imgs1{
+	width: 302px;
+	height: 304px;
 }
 .v_foots{
 	margin-bottom: 40px;

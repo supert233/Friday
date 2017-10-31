@@ -57,11 +57,10 @@
 						<span class="up" @click="inputAdd()">+</span>
 					</div>
 					<span>件</span>
-					<router-link to="/KshopCon"><div v-if="addShop" class="shopping">加入购物车</div></router-link>
+					<a href="/shopping.html"><div v-if="addShop" class="shopping">加入购物车</div></a>
 					<a href="join.html"><div v-if="!addShop" class="shopping">加入购物车</div></a>
-					<router-link to="/Z_confirmOrder"><div v-if="buyShop" class="pay">
-						<a href="">立即购买</a>
-					</div></router-link>
+					<a href="/shopping.html"><div v-if="buyShop" class="pay">立即购买
+					</div></a>
 					<a href="join.html"><div v-if="!buyShop" class="pay">
 						立即购买
 					</div></a>
@@ -310,7 +309,15 @@
 				this.bgbol2 = false;
 			},
 			comCollect: function() {
-				
+				this.bols=!this.bols;
+				var collectS=document.getElementsByClassName("collectS");
+				if(!this.bols){
+					collectS.text="已收藏";
+					this.collectCont=collectS.text;
+				}else{
+					collectS.text="收藏此商品";
+					this.collectCont=collectS.text;
+				}
 			}
 		},
 		mounted(){
