@@ -169,7 +169,8 @@ router.post('/findaddress', function(req,res) {
 
 });
 
-<<<<<<< HEAD
+
+
 //新增地址
 router.post('/upaddress', function(req,res) {
 	var upadd = $sql.user.upadd;
@@ -217,7 +218,6 @@ router.post('/changepassword', function(req,res) {
 
 
 
-=======
 //首页获取数据
 router.post('/indexCons',function(req,res){
 	conn.query('SELECT * FROM commodity', function(err,rows){
@@ -228,8 +228,21 @@ router.post('/indexCons',function(req,res){
 		}
 	})
 });
->>>>>>> 4b40e89699f72bb5302c20eaffa09759a49a9fdb
 
+
+
+
+
+//首页获取数据
+router.post('/indexCons',function(req,res){
+	conn.query('SELECT * FROM commodity', function(err,rows){
+		if (rows=="" || rows == undefined) {
+			res.send('{"err":0}')
+		} else{
+			res.send(rows);
+		}
+	})
+});
 
 
 
