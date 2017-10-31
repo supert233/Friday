@@ -22,12 +22,12 @@
 				</div>
 				<div class="s_myj_masW">
 					<span>2017-10-20 20:37:23</span>
-					<span>+100</span>
+					<span>-100</span>
 					<span>消费赠送</span>
 				</div>
 				<div class="s_myj_masW">
 					<span>2017-10-20 20:37:23</span>
-					<span>+100</span>
+					<span>-100</span>
 					<span>消费赠送</span>
 				</div>
 			</div>
@@ -40,7 +40,7 @@
 		name:"s_myjifen",
 		data(){
 			return{
-				num:400
+				num:0
 			}
 		},
 		computed:{

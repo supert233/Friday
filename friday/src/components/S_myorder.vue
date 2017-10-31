@@ -71,8 +71,8 @@
 		name:"s_myorder",
 		data(){
 			return{
-				orn:false,
-				orh:true,
+				orn:true,
+				orh:false,
 				orderNum:1503124569,
 				orderTime:"2017.10.20  13:58:12",
 				orderStor:'爱爱水果店',

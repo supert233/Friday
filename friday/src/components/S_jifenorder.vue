@@ -1,6 +1,6 @@
 <template>
 	<div class="jifenorder">
-		<div class="s_jo_head"><span>积分订单</span> <span>当前积分:<span>240</span></span></div>
+		<div class="s_jo_head"><span>积分订单</span> <span>当前积分:<span>50</span></span></div>
 		<div class="s_jo_bod"> 
 			<div  class="order_has">
 					<div class="s_hasHea">
