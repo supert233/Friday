@@ -187,17 +187,17 @@
 			list1:function(e){
 				this.arrs=this.arr1;
 				var oneweb = e.target.innerText;
-				this.$store.commit('oneAuthor',oneweb)
+				this.$store.commit('oneAuthor',oneweb);
 			},
 			list2:function(e){
 				this.arrs=this.arr2;
 				var oneweb = e.target.innerText;
-				this.$store.commit('oneAuthor',oneweb)
+				this.$store.commit('oneAuthor',oneweb);
 			},
 			list3:function(e){
 				this.arrs=this.arr3;
 				var oneweb = e.target.innerText;
-				this.$store.commit('oneAuthor',oneweb)
+				this.$store.commit('oneAuthor',oneweb);
 			},
 			
 			list4:function(e){
@@ -235,6 +235,8 @@
 				localStorage.removeItem('userphone');
 			},
 			k_list:function(e){
+				this.fir = false;
+				this.sec = false;
 				var e = e.target;
 				var a = e.parentNode.childNodes;
 				for (var i = 0; i < a.length; i++) {

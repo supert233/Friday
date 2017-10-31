@@ -144,51 +144,7 @@ router.post('/indexCons',function(req,res){
 			res.send(rows);
 		}
 	})
-})
+});
 
-
-//首页获取数据
-router.post('/indexCons',function(req,res){
-	conn.query('SELECT * FROM commodity', function(err,rows){
-		if (rows=="" || rows == undefined) {
-			res.send('{"err":0}')
-		} else{
-			res.send(rows);
-		}
-	})
-})
-
-//首页获取数据
-router.post('/indexCons',function(req,res){
-	conn.query('SELECT * FROM commodity', function(err,rows){
-		if (rows=="" || rows == undefined) {
-			res.send('{"err":0}')
-		} else{
-			res.send(rows);
-		}
-	})
-})
-
-//首页获取数据
-router.post('/indexCons',function(req,res){
-	conn.query('SELECT * FROM commodity', function(err,rows){
-		if (rows=="" || rows == undefined) {
-			res.send('{"err":0}')
-		} else{
-			res.send(rows);
-		}
-	})
-})
-
-//首页获取数据
-router.post('/indexCons',function(req,res){
-	conn.query('SELECT * FROM commodity', function(err,rows){
-		if (rows=="" || rows == undefined) {
-			res.send('{"err":0}')
-		} else{
-			res.send(rows);
-		}
-	})
-})
 
 module.exports = router;

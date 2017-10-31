@@ -45,9 +45,9 @@
 			<!--开始时间下面的轮播图-->
 			<ul class="v_binBan">
 				<li v-for="item in arr1">
-					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
+					<router-link to="/Zdetail"><img src="../pages/index/assets/image/special7.jpg" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
-					<span class="v_bin2">果肉绵密 .......</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
 						<span>¥{{item.comprice}}</span>
 						<span>¥40.00</span>
@@ -72,7 +72,7 @@
 				<li v-for="item in arr2">
 					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
-					<span class="v_bin2">果肉绵密 .......</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
 						<span>¥{{item.comprice}}</span>
 						<span>¥40.00</span>
@@ -97,7 +97,7 @@
 				<li v-for="item in arr3">
 					<router-link to="/Zdetail"><img src="" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
-					<span class="v_bin2">果肉绵密 .......</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
 						<span>¥{{item.comprice}}</span>
 						<span>¥40.00</span>
@@ -123,7 +123,7 @@
 				<li v-for="item in arr4">
 					<router-link to="/Zdetail"><img src="../pages/index/assets/special15.png" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
-					<span class="v_bin2">果肉绵密 .......</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
 						<span>¥{{item.comprice}}</span>
 						<span>¥40.00</span>

@@ -4,18 +4,18 @@
 		<div class="p_sort">
 			您的当前位置 :
 			<span>首页 > </span>
-			<span>{{oneweb}}</span>
-			<span> > {{twoweb}}</span>
+			<span>{{onewebs}}</span>
+			<span> > {{twowebs}}</span>
 		</div>
 		<!--一级分类-->
 		<div class="p_fir">
 			<span>一级分类 : </span>
 			<ul>
 				<li>全部</li>
-				<li>新鲜水果</li>
-				<li>生猛海鲜</li>
-				<li>肉类家禽</li>
-				<li>蛋奶素食</li>
+				<li @click="oneClass()">新鲜水果</li>
+				<li @click="oneClass()">生猛海鲜</li>
+				<li @click="oneClass()">肉类家禽</li>
+				<li @click="oneClass()">蛋奶素食</li>
 			</ul>
 		</div>
 		<!--二级分类-->
@@ -64,21 +64,31 @@
 	export default{
 		data(){
 			return{
-				
+				twowebs:'',
+				onewebs:'',
+				allwebs:'',
 			}
+		},
+		methods:{
+			
+			
 		},
 		computed:{
 			twoweb(){
 				return this.$store.state.twoweb
 			},
 			oneweb(){
-				return this.$store.state.oneweb
+				return this.$store.state.oneweb 
 			},
 			allweb(){
 				return this.$store.state.allweb
-			}
-			
+			},			
 		},
+		mounted(){
+			this.twowebs = this.$store.state.twoweb;
+			this.onewebs = this.$store.state.oneweb;
+			this.allwebs = this.$store.state.allweb;
+		}
 		
 	}
 	
