@@ -34,26 +34,25 @@
 					<!--规格-->
 					<span class="z_weight">500g</span>
 					<!--单价-->
-					<span class="z_price">¥20</span>
+					<span class="z_price">¥{{shoppingPrice}}</span>
 					<!--数量-->
 					<div class="z_num">
 						<span class="down" @click="inputMinus()">-</span>
-						<input type="text" placeholder="1" readonly class="inputNum"/>
+						<input type="text" placeholder="1" readonly class="inputNum" v-model="shoppingNum"/>
 						<span class="up" @click="inputAdd()">+</span>
 					</div>
 					<!--金额-->
-					<span class="z_money">¥20</span>
+					<span class="z_money">¥{{shoppingSum}}</span>
 					<!--操作-->
-					<span class="z_delete">删除</span>
-					
+					<span class="z_delete" @click="z_noshow()">删除</span>
 				</div>
 				<div class="z_sum">
 					<span>商品金额</span>
-					<span class="red">¥20</span>
+					<span class="red">¥{{shoppingSum}}</span>
 				</div>
 			</div>
 			<div class="z_comSum">
-				<span class="z_all1 z_all">全选</span><span class="z_all">批量删除</span><span class="comall">商品总计</span><span class="z_needPay">¥20</span><span class="onceShopping">立即购买</span>
+				<span class="z_all1 z_all">全选</span><span class="z_all">批量删除</span><span class="comall">商品总计</span><span class="z_needPay">¥{{shoppingSum}}</span><router-link to="/Z_confirmOrder"><span class="onceShopping">立即购买</span></router-link>
 			</div>
 		</div>
 	</div>
@@ -63,7 +62,14 @@
 	export  default{
 		data(){
 			return{
-				shopBol:false,		
+				//购物车中有无商品
+				shopBol:false,
+				//商品单价
+				shoppingPrice:20,
+				//商品数量
+				shoppingNum:"",
+				//商品总计
+				shoppingSum:20
 			}
 		},
 		
@@ -73,15 +79,19 @@
   				var inputNum=document.getElementsByClassName("inputNum")[0];
 //				console.log(inputNum.value);
 				inputNum.value++;
+				this.shoppingNum=inputNum.value;
+				this.shoppingSum=this.shoppingNum*this.shoppingPrice;
   			},
   			//数量减少的方法
   			inputMinus:function(){
   				var inputNum=document.getElementsByClassName("inputNum")[0];
 //				console.log(inputNum.value);
-				if(inputNum.value <= 0) {
-             		inputNum.value = 0;
+				if(inputNum.value <= 1) {
+             		inputNum.value = 1;
            		}else{
 					inputNum.value--;
+					this.shoppingNum=inputNum.value;
+					this.shoppingSum=this.shoppingNum*this.shoppingPrice;
 				}
   			},
 		}
@@ -166,10 +176,9 @@
 	.many,
 	.money,
 	.delete {
-		margin-left: 144px;
+		margin-left: 124px;
 	}
 	.z_left {
-		/*margin-top: 20px;*/
 		margin-left: 25px;
 		display: inline-block;
 	}
@@ -196,15 +205,15 @@
 		padding-bottom: 20px;
 	}
 	.z_oneCont .z_weight {
-		margin-left: 220px;
+		margin-left: 210px;
 	}
 	.z_oneCont .z_price {
-		margin-left: 140px;
+		margin-left: 130px;
 	}
 	
 	.z_oneCont .z_num {
 		display: inline-block;
-		margin-left: 120px;
+		margin-left: 100px;
 	}
 	.z_num span {
 		display: inline-block;
@@ -226,10 +235,10 @@
 		border: 1px solid #e9e9e9;
 	}
 	.z_oneCont .z_money {
-		margin-left: 120px;
+		margin-left: 95px;
 	}
 	.z_oneCont .z_delete{
-		margin-left: 135px;
+		margin-left: 115px;
 		color:#55964a;
 		/*css鼠标手势*/
 		cursor: pointer;
@@ -264,13 +273,16 @@
 		margin-left:24px;
 	}
 	.z_comSum .z_needPay{
+		display: inline-block;
+		width: 40px;
+		line-height:30px;
 		color:red;
 		font-size: 20px;
 		margin-left:10px;
-		margin-right: 15px;
+		margin-right: 28px;
 	}
 	.z_comSum .comall{
-		margin-left: 840px;
+		margin-left: 820px;
 	}
 	.z_comSum .onceShopping{
 		display: inline-block;

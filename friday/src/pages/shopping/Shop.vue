@@ -2,7 +2,6 @@
   <div id="app">
   	<!--头部组件-->
   	<shopHeader></shopHeader>
-  	
   	<!--替换的组件-->
   	<router-view></router-view>
   	<!--底部组件-->
@@ -13,12 +12,13 @@
 <script>
 	import shopHeader from "../.././components/shopHeader";
 	import zFooter from "../.././components/z_footer";
-	
+	import Z_payMethod from "../.././components/z_payMethod";
 export default {
   name: 'apps',
  components:{	
  		shopHeader,
-	  	zFooter
+	  	zFooter,
+	  	Z_payMethod
 	  }
 }
 </script>

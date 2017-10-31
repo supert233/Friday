@@ -72,7 +72,7 @@
 		
 		<!--商品信息-->
 		<div class="z_commodity">
-			<span>商品信息</span>
+			<span class="comNew">商品信息</span>
 			<div class="z_comContent">
 				<!--商品信息-->
 				<div class="z_comMenu">
@@ -120,7 +120,7 @@
 				<!--单选框-->
 				<label>	
 					<input type="radio" name="kind" />不需要
-					<input type="radio" name="kind" />  个人
+					<input type="radio" name="kind" checked="check"/>  个人
 					<input type="radio" name="kind" />  单位
 				</label>
 			</div>
@@ -189,14 +189,14 @@
 				<div class="transBox"></div>
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td @click="time($event)">10:00-13:00</td>
-						<td @click="time($event)">11:00-14:00</td>
-						<td @click="time($event)">12:00-15:00</td>
+						<td @click="time($event)" :class="{'bgcolor':bgcolorbol}">10:00-13:00</td>
+						<td @click="time($event)" >11:00-14:00</td>
+						<td @click="time($event)" >12:00-15:00</td>
 						<td @click="time($event)">13:00-16:00</td>
 						<td @click="time($event)">14:00-17:00</td>
 					</tr>
 					<tr>
-						<td @click="time($event)">15:00-18:00</td>
+						<td @click="time($event)" >15:00-18:00</td>
 						<td @click="time($event)">16:00-19:00</td>
 						<td @click="time($event)">17:00-20:00</td>
 						<td @click="time($event)">18:00-21:00</td>
@@ -218,7 +218,7 @@
 				<span>订单完成后可获得积分: </span>
 				<span class="score">100积分</span>	
 			</div>
-			<button class="z_subOrder">提交订单</button>
+			<router-link to="/Z_payMethod"><button class="z_subOrder">提交订单</button></router-link>
 		</div>
 	</div>
 </template>
@@ -240,7 +240,8 @@
   				//商品单价
   				shoppingPrice:"20",
   				//商品总计
-  				shoppingSum:"20"
+  				shoppingSum:"20",
+  				bgcolorbol:"false"
   				
   			}
   		},
@@ -271,6 +272,7 @@
   			},
   			//修改时间的确认按钮
   			time:function(e){
+				this.bgcolorbol=true;
   				var _this=e.target;
 //				console.log(_this);
 //				console.log(_this.innerText);
@@ -359,7 +361,7 @@
 	
 </script>
 
-<style>
+<style scoped>
 	div,
 	span,
 	img,
@@ -367,6 +369,9 @@
 	label,select, {
 		padding: 0;
 		margin: 0;
+	}
+	.bgcolor{
+		background-color: red;
 	}
 	/*送达时间*/
 	.z_arriveTime{
@@ -503,6 +508,7 @@
 		border-bottom: 1px solid #e9e9e9;
 		margin-bottom: 20px;
 		padding-bottom: 26px;
+		display: none;
 	}
 	.havedInf .haveDown,.haveUp{
 		display: inline-block;
@@ -559,7 +565,11 @@
 	}
 	/*没地址的收货人信息*/
 	.z_firstShow{
-		display: none;
+		/*display: none;*/
+	}
+	.z_firstShow span{
+		display: inline-block;
+		margin-top:10px;
 	}
 	.s_upad_bod{
 		width:1280px;
@@ -739,6 +749,10 @@
 		width: 1280px;
 		margin: 0 auto;
 	}
+	.z_commodity .comNew{
+		display: inline-block;
+		margin-top: 10px;
+	}
 	/*两次使用*/
 	.z_comContent {
 		width: 1278px;
@@ -879,7 +893,6 @@
 		height: 32px;
 		outline: none;
 		border: 1px solid #e9e9e9;
-		margin-bottom: 50px;
 		font-size: 14px;
 		padding-left: 10px;
 	}

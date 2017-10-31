@@ -26,19 +26,19 @@ import Kinte from '../../.././components/k_inte'
 import Local from "../../.././components/local"
 import Five from "../../.././components/five"
 import Protect from "../../.././components/protect"
-import ShopCon from "../../.././components/shopCon"
 
 import Zdetail from "../../.././components/z_detail"
 import Zaddshop from "../../.././components/z_addshoppingcar"
-import Z_confirmOrder from "../../.././components/z_confirmOrder" //商品订单
+//import Z_confirmOrder from "../../.././components/z_confirmOrder" //商品订单
 import Z_dirSupply from "../../.././components/z_dirSupply"
 import Z_fivePre from "../../.././components/z_fivePre"
 import Z_onTime from "../../.././components/z_onTime"
-import Z_payMethod from "../../.././components/z_payMethod"//提交订单付款方式
+//import Z_payMethod from "../../.././components/z_payMethod"//提交订单付款方式
 import Z_score from "../../.././components/z_score"//积分兑换
 import Z_searchNull from "../../.././components/z_searchNull"//搜索商品不存在
 import z_wholeControl from "../../.././components/z_wholeControl"
 import K_twoweb from "../../.././components/k_twoweb"//二级页面
+import K_success from "../../.././components/k_success"
 
 Vue.use(Router)
 
@@ -61,11 +61,6 @@ export default new Router({
 	    	name:'z_score',
 	    	component: Z_score
     },
-     {
-	    	path:'/Z_confirmOrder',
-	    	name:'Z_confirmOrder',
-	    	component: Z_confirmOrder
-    },
     {
 	    	path:'/z_dirSupply',
 	    	name:'Z_dirSupply',
@@ -75,11 +70,6 @@ export default new Router({
 	    	path:'/z_wholeControl',
 	    	name:'z_wholeControl',
 	    	component: z_wholeControl
-    },
-     {
-	    	path:'/KshopCon',
-	    	name:'ShopCon',
-	    	component: ShopCon
     },
     {
 	    	path:'/z_onTime',
@@ -97,11 +87,6 @@ export default new Router({
 	    	name:'z_detail',
 	    	component: Zdetail
     },
-     {
-	    	path:'/ktwoweb',
-	    	name:'ktwoweb',
-	    	component: K_twoweb
-   	 }, 
      {
       path: '/join.html',
       name: 'register',

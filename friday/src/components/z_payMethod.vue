@@ -1,19 +1,5 @@
 <template>
 	<div class="z_payMoney">
-		<!-- 订单提交成功最外层 -->
-		<div class="ordersub_wrap">
-			<div class="yordertop">
-				<!-- 左边logo -->
-				<div class="ordersuc_logo">
-					<a href=""><img src="../pages/index/assets/image/y_logo.png" height="67" width="370"></a>
-				</div>
-				<!-- 右边导航 -->
-				<div class="ordersuc_nav">
-					<span>我的购物车</span><span>&gt;</span> <span>确认订单信息</span><span>&gt;</span>
-					<span class="y_ordersuc_active">订单提交成功</span>
-				</div>
-			</div>
-		</div>
 		<!-- 订单提交成功内容  -->
 		<div class="y_paycont">
 			<div class="y_paycont_sign">
@@ -30,20 +16,21 @@
 				<!-- 支付宝 -->
 				<li class="y_alipay">
 					<input @click="alipay()" type="radio" name="pay" checked="checked">
-					<a href=""></a>
+					<span></span>
 				</li>
 				<!-- 微信 -->
 				<li>
 					<input @click="wechat()" type="radio" name="pay">
-					<a href=""></a>
+					<span></span>
+					
 				</li>
 				<li>
 					<input type="radio" name="pay">
-					<a href=""></a>
+					<span></span>
 				</li>
 				<li>
 					<input type="radio" name="pay">
-					<a href="">余额支付(¥500)</a>
+					<span>余额支付(¥500)</span>
 				</li>
 			</ul>
 			<!-- 支付方式 -->
@@ -53,7 +40,7 @@
 					<div class="left">
 						<h4>使用电脑支付</h4>
 						<img src="../pages/index/assets/image/y_alipay_logo.png">
-						<a href="">立即支付</a>
+						<router-link to="/Ksuccess">立即支付</router-link>
 					</div>
 					<div class="center"></div>
 					<div class="right">
@@ -99,59 +86,23 @@
 </script>
 
 <style>
-	ul,li{
-		list-style: none;
-	}
-	.left a{
-		text-decoration: none;
-	}
-	.ordersub_wrap {
+	.z_payMoney{
 		width: 100%;
-		border-bottom: solid 1px #ddd;
+		height: 880px;
 	}
-	
-	.yordertop {
-		width: 1280px;
-		margin: 25px auto 0;
-		overflow: hidden;
-	}
-	
-	.ordersuc_logo {
-		float: left;
-		height: 92px;
-	}
-	
-	.ordersuc_nav {
-		float: right;
-		line-height: 90px;
-		font-size: 16px;
-	}
-	
-	.ordersuc_nav span {
-		margin: 0 8px;
-	}
-	
-	.y_ordersuc_active {
-		color: #F08200;
-	}
-	
-	.y_pay_text {
-		text-align: center;
-		color: #666;
-	}
-	
 	.y_paycont {
 		width: 1280px;
+		height: 880px;
 		margin: 0 auto;
 	}
 	
 	.y_paycont_sign {
-		margin: 80px 0 50px 0;
+		margin: 30px 0 30px 0;
 		text-align: center;
 	}
 	
 	.y_pay_price {
-		margin: 40px 0;
+		margin: 20px 0;
 		color: #666;
 	}
 	
@@ -166,15 +117,19 @@
 		font-size: 14px;
 		color: #666;
 	}
-	
+	.y_pay_text{
+		text-align: center;
+		margin-bottom: 30px;
+	}
 	.y_pay_text span {
 		color: #F08200;
+		
 	}
 	
 	.y_paysuc_address {
 		height: 40px;
 		line-height: 40px;
-		margin-top: 80px;
+		margin-top: 20px;
 		padding-left: 40px;
 		border: solid 1px #ddd;
 		background: url(../pages/index/assets/image/y_location.png) no-repeat 15px center #F4FFF2;
@@ -188,13 +143,13 @@
 	}
 	
 	.y_pay_list {
-		margin: 40px 0;
+		margin: 20px 0;
 		overflow: hidden;
 	}
 	
 	.y_pay_list li {
 		float: left;
-		line-height: 40px;
+		line-height: 30px;
 		margin-right: 30px;
 	}
 	
@@ -203,7 +158,7 @@
 		margin-right: 10px;
 	}
 	
-	.y_pay_list li:nth-child(1) a {
+	.y_pay_list li:nth-child(1) span {
 		display: inline-block;
 		width: 130px;
 		height: 40px;
@@ -211,7 +166,7 @@
 		border: solid 1px #ddd;
 	}
 	
-	.y_pay_list li:nth-child(2) a {
+	.y_pay_list li:nth-child(2) span {
 		display: inline-block;
 		width: 130px;
 		height: 40px;
@@ -219,7 +174,7 @@
 		border: solid 1px #ddd;
 	}
 	
-	.y_pay_list li:nth-child(3) a {
+	.y_pay_list li:nth-child(3) span {
 		display: inline-block;
 		width: 130px;
 		height: 40px;
@@ -231,7 +186,7 @@
 		vertical-align: 0;
 	}
 	
-	.y_pay_list li:nth-child(4) a {
+	.y_pay_list li:nth-child(4) span {
 		display: inline-block;
 		height: 40px;
 		padding-left: 50px;
@@ -258,7 +213,7 @@
 	}
 	
 	.y_pay_show .left img {
-		margin: 40px auto;
+		margin: 20px auto;
 		display: block;
 	}
 	
@@ -307,6 +262,4 @@
 		text-align: center;
 		line-height: 280px;
 	}
-	
-	.y_pay_wechat .right {}
 </style>
