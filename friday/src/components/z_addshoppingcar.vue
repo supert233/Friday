@@ -18,7 +18,7 @@
 					</div>
 					<span>件</span>
 				</div>
-				<router-link to="/KshopCon"><button v-if="addShop" class="z_shoppingcar">添加到购物车</button></router-link>
+				<a href="/shopping.html"><button v-if="addShop" class="z_shoppingcar">添加到购物车</button></a>
 				<a href="join.html"><button v-if="!addShop" class="z_shoppingcar">添加到购物车</button></a>
 			</div>
 			

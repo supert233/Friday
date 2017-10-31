@@ -2,9 +2,9 @@
 	<div class="s_changPass">
 		<div class="s_chPass_h"><span>修改密码</span></div>
 		<div class="s_changeCon">
-			<input type="text" />
-			<input type="text" placeholder="请输入密码 (6-20位号码字符)"/>
-			<input type="text" placeholder="请再次输入密码确认"/>
+			<input type="text" name="" id="" value=""  v-model="isphone" />
+			<input type="text" placeholder="请输入密码 (6-20位号码字符)" v-model="newpassword"/>
+			<input type="text" placeholder="请再次输入密码确认" v-model="twicepassword"/>
 			<div class="s_verCode">
 				<input type="" name="" id="" value="" placeholder="验证码" v-model="vecoInput"/>
 				<img src="../pages/index/assets/图片验证.png"/>
@@ -38,20 +38,43 @@
 				succChang:false,
 				phcoInput:"",
 				vecoInput:"",
+				isphone:"",
+				newpassword:"",
+				twicepassword:"",
 				code:Math.floor(Math.random()*9000)+1000,
 			}
 		},
 		methods:{
 			upChange:function(){
 				var verPhone= this.vecoInput;
+				var uid = localStorage.getItem("userid");
 				if(verPhone=="xqcr"){
-					this.verCod=false;
-					if (this.phcoInput == this.code) {
-						this.phoneCode=false;
-						this.succChang=true
+					if (this.newpassword == this.twicepassword) {
+							this.$http.post('/api/user/changepassword',{
+							userid:uid,
+							password:this.newpassword
+						},{emulateJSON:true}).then(function(res){
+							var keys=res.body.err;
+							console.log(keys);
+							if (keys == 0) {
+								alert("修改失败")
+							}else{
+									this.phoneCode=false;
+									this.succChang=true
+									
+							}
+						})
 					}else{
-						this.phoneCode=true;
+						alert("两次密码不一致")
 					}
+					
+//					this.verCod=false;
+//					if (this.phcoInput == this.code) {
+//						this.phoneCode=false;
+//						this.succChang=true
+//					}else{
+//						this.phoneCode=true;
+//					}
 				}else{
 					this.verCod=true
 				}
@@ -59,6 +82,18 @@
 			getVer:function(){
 				alert("您的验证码是"+this.code+"请保存好您的验证码");
 			}
+		},
+		computed:{
+			truename () {
+	        return this.$store.state.truename
+	      },
+	      userphone () {
+	        return this.$store.state.userphone
+	      },
+		},
+		mounted(){
+			this.turena = this.$store.state.truename
+			this.isphone = this.$store.state.userphone
 		}
 	}
 </script>

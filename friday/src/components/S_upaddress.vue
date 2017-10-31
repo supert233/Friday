@@ -10,7 +10,7 @@
 				
 			</div>
 			<div class="s_adTown">
-				<span style="color:red">* </span><span>详细地址 : </span><input type="text" name="" id="" value="" v-model="badress"/>
+				<span style="color:red">* </span><span>详细地址 : </span><input type="text" name="" id="" value="" v-model="detailaddress"/>
 			</div>
 			<div class="s_adPhone">
 				<span style="color:red">* </span><span>联系电话 : </span>
@@ -40,7 +40,7 @@
 			return{
 				cityInfo: '',
 				sname:"",
-				badress:"",
+				detailaddress:"",
 				sphone:"",
 				lphongf:"",
 				lphongl:""
@@ -60,7 +60,10 @@
 				}
 			},
 			resBtn:function(){
-				var a = document.getElementsByTagName("select")[0];
+				var province = document.getElementsByTagName("select")[0].value;
+				var city = document.getElementsByTagName("select")[1].value;
+				var areas = document.getElementsByTagName("select")[2].value;
+				var userid = localStorage.getItem("userid");
 				if (this.sname=="") {
 					alert("收货姓名不能为空")
 				}else if(this.badress==""){
@@ -68,9 +71,25 @@
 				}else if(this.lphongf=="" &&this.lphongl=="" &&this.sphone==""){
 					alert("电话不能为空")
 				}else{
-					alert("进行下一项")
+					this.$http.post('/api/user/upaddress',{
+						userid:userid,
+						takename:this.sname,
+						takearea:province+" "+city+" "+areas,
+						detailaddress:this.detailaddress,
+						phone:this.sphone,
+					},{emulateJSON:true}).then(function(res){
+						var keys=res.body.err;
+						var addre = res.body
+						if(keys == 0){
+							this.addres_has=false;
+							this.addres_nu=true;
+						}else{
+//							console.log(addre);
+						}
+								
+					})
 				}
-				console.log(a.value);
+				
 			}
 			
 		}
@@ -109,6 +128,7 @@
 		height: 32px;
 		font-size: 16px;
 		margin-left: 20px;
+		text-indent: 10px;
 	}
 	.s_adCity,.s_adTown,.s_adPhone{
 		margin-left: 16px;

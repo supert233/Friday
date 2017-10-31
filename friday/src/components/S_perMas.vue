@@ -176,7 +176,13 @@
 						
 						
 						},{emulateJSON:true}).then(function(res){
-							
+							console.log(res.body.err)
+							var keys = res.body.err
+							if(keys==1){
+								localStorage.setItem("truename",this.turena);
+							}else{
+								alert("修改失败")
+							}
 							
 						})
 				
