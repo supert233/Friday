@@ -135,7 +135,7 @@
 				arrs:"",
 				inputTxt:"",
 				allArr:[],
-				
+				allArrs:[],
 			}
 		},
 		computed: {
@@ -238,12 +238,14 @@
 				this.fir = false;
 				this.sec = false;
 				var e = e.target;
-				var a = e.parentNode.childNodes;
+				var a = e.parentNode.childNodes;				
 				for (var i = 0; i < a.length; i++) {
 					this.allArr.push(a[i].innerText);
-				}
+				};
+				this.allArrs = this.allArr;
+				this.allArr = [];
 				this.$store.commit('twoAuthor',e.innerText);
-				this.$store.commit('allAuthor',this.allArr);
+				this.$store.commit('allAuthor',this.allArrs);
 			}
 			
 		},

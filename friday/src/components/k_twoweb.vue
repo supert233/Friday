@@ -12,17 +12,17 @@
 			<span>一级分类 : </span>
 			<ul>
 				<li>全部</li>
-				<li @click="oneClass()">新鲜水果</li>
-				<li @click="oneClass()">生猛海鲜</li>
-				<li @click="oneClass()">肉类家禽</li>
-				<li @click="oneClass()">蛋奶素食</li>
+				<li @click="classData($event)" :class="{'green':bol1}">新鲜水果</li>
+				<li @click="classData($event)" :class="{'green':bol2}">生猛海鲜</li>
+				<li @click="classData($event)" :class="{'green':bol3}">肉类家禽</li>
+				<li @click="classData($event)" :class="{'green':bol4}">蛋奶素食</li>
 			</ul>
 		</div>
 		<!--二级分类-->
 		<div class="p_fir">
 			<span>二级分类 : </span>
 			<ul>
-				<li>全部</li>
+				<li :class="{'green':bol5}">全部</li>
 				<li v-for="item in allweb">{{item}}</li>				
 			</ul>
 		</div>
@@ -38,23 +38,18 @@
 			<div>评分最高</div>
 		</div>
 		<div class="p_content">
-			<ul>
-				<li>
-					<img src="../pages/index/assets/sort1.jpg" alt="" />
-					<img src="../pages/index/assets/shopping.png" alt="" class="p_shop" />
+			<ul class="v_binBan">
+				<li v-for="item in arrs3">
+					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
+					<span class="v_bin1">{{item.comname}}</span>
+					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
+					<div class="v_bin3">
+						<span>¥{{item.comprice}}.00</span>
+						<span>¥40.00</span>
+					</div>
+					<router-link to="/zaddshop"><img @click="k_show()" class="v_bin4" src="../pages/index/assets/littgou.png" alt="" /></router-link>
 				</li>
-				<li>
-					<img src="../pages/index/assets/sort2.jpg" alt="" />
-					<img src="../pages/index/assets/shopping.png" alt="" class="p_shop" />
-				</li>
-				<li>
-					<img src="../pages/index/assets/sort3.jpg" alt="" />
-					<img src="../pages/index/assets/shopping.png" alt="" class="p_shop" />
-				</li>
-				<li>
-					<img src="../pages/index/assets/sort4.jpg" alt="" />
-					<img src="../pages/index/assets/shopping.png" alt="" class="p_shop" />
-				</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -67,9 +62,68 @@
 				twowebs:'',
 				onewebs:'',
 				allwebs:'',
+				arrs1:[],
+				arrs2:[],
+				arrs3:[],
+				bol1:false,
+				bol2:false,
+				bol3:false,
+				bol4:false,
+				bol5:false,
+				
 			}
 		},
 		methods:{
+			classData:function(e){
+				var a = e.target.innerText;
+				//console.log(this.arrs1);
+				var s = this.arrs1;				
+				for (var i = 0; i < s.length-1; i++) {
+//					console.log(s[i])
+					if (a == s[i].comtype) {					
+						this.arrs2.push(s[i]);
+					}
+				}
+				this.arrs3 = this.arrs2;
+				this.arrs2 = [];
+				this.onewebs = a;
+				this.twowebs = "全部";
+				
+				//一级分类的点击事件
+				switch (a){
+					case "新鲜水果":
+						this.bol1=true;
+						this.bol2=false;
+						this.bol3=false;
+						this.bol4=false;
+						this.bol5=true;
+						break;
+					case "生猛海鲜":
+						this.bol1=false;
+						this.bol2=true;
+						this.bol3=false;
+						this.bol4=false;
+						this.bol5=true;
+						break;
+					case "肉类家禽":
+						this.bol1=false;
+						this.bol2=false;
+						this.bol3=true;
+						this.bol4=false;
+						this.bol5=true;
+						break;
+					case "蛋奶素食":
+						this.bol1=false;
+						this.bol2=false;
+						this.bol3=false;
+						this.bol4=true;
+						this.bol5=true;
+						break;
+					default:
+						break;
+				}
+			},
+			
 			
 			
 		},
@@ -88,6 +142,12 @@
 			this.twowebs = this.$store.state.twoweb;
 			this.onewebs = this.$store.state.oneweb;
 			this.allwebs = this.$store.state.allweb;
+			
+			this.$http.post('api/user/indexCons',{}, {emulateJSON: true}).then(function(res){
+				var allData = res.body;
+//				console.log(allData)
+				this.arrs1 = allData;
+			})
 		}
 		
 	}
@@ -161,7 +221,7 @@
 	
 	.p_content {
 		width: 1280px;
-		margin: 0 auto;
+		margin: 0 auto 40px;
 	}
 	
 	.p_content ul {
@@ -170,6 +230,9 @@
 	}
 	
 	.p_content ul li {
+		width: 304px;
+		height: 432px;
+		border: 1px solid #ececec;
 		position: relative;
 	}
 	
@@ -179,4 +242,41 @@
 		right: 20px;
 		z-index: 10;
 	}
+	.v_binBan .v_bin1{
+	color: #333333;
+	font-size: 18px;
+	display: block;
+	margin-left: 20px;
+}
+.v_binBan .v_bin2{
+	color: #666666;
+	font-size: 14px;
+	display: block;
+	margin-left: 20px;
+	margin-top: 8px;
+}
+.v_binBan .v_bin3{
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.v_bin3 span:nth-child(1){
+	color: #ff5757;
+	font-size: 20px;
+}
+.v_bin3 span:nth-child(2){
+	color: #666666;
+	font-size: 14px;
+	margin-left: 16px;
+	text-decoration: line-through;
+}
+.v_binBan .v_bin4{
+	position: absolute;
+	right: 20px;
+	bottom: 24px;
+}
+
+.green{
+	background-color: #498e3d;
+	color: white;
+}
 </style>

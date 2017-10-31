@@ -13,6 +13,7 @@ routes: [
       path: '/shopping.html',
       name: 'shopCon',
       component: Shopcon,
+      children:[]
       
     },
      {
