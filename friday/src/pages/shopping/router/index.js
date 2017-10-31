@@ -17,7 +17,6 @@ routes: [
       path: '/shopping.html',
       name: 'shopCon',
       component: Shopcon,
-<<<<<<< HEAD
       children:[
        ] 
     },
@@ -30,10 +29,6 @@ routes: [
 	    	path:'/Zdetail',
 	    	name:'z_detail',
 	    	component: Zdetail
-=======
-      children:[]
-      
->>>>>>> 75c05ca6f46fae3ad746599bab31bca71ab817c5
     },
       {
         	path:'/Z_payMethod',
