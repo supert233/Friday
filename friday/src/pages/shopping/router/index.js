@@ -4,6 +4,8 @@ import Uhomes from '../../.././components/Uhomes'
 import Shopcon from "../../.././components/shopCon"
 import Ksuccess from "../../.././components/k_success"
 import S_myorder from '../../.././components/S_myorder'
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -16,6 +18,7 @@ routes: [
       children:[]
       
     },
+    
      {
 	  path: '/uhomes',
       name: 'uhomes',

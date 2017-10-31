@@ -40,6 +40,7 @@ import Z_searchNull from "../../.././components/z_searchNull"//搜索商品不�
 import z_wholeControl from "../../.././components/z_wholeControl"
 import K_twoweb from "../../.././components/k_twoweb"//二级页面
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -56,6 +57,7 @@ export default new Router({
 	    },
       ]
     },
+    
      {
 	    	path:'/z_score',
 	    	name:'z_score',
