@@ -99,7 +99,7 @@
 					</div>
 					<div class="p_phone">
 						<input class="v_regInp" type="text" placeholder="手机验证码" />
-						<button>获取验证码</button>
+						<button @click="tan()">获取验证码</button>
 					</div>
 					<!--用户协议-->
 					<div class="p_user">
@@ -197,6 +197,9 @@
 		      }
 		  },
 		methods:{
+			tan:function(){
+				alert("你的验证码已发送,请注意查收")	
+			},
 			tray:function(){
 //				this.notes=true;
 //				setTimeout(function(){

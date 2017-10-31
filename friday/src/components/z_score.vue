@@ -88,7 +88,8 @@
 				<span>应付积分: </span>
 				<span class="score">{{shoppingSum}}积分</span>
 			</div>
-			<button class="z_subOrder">确认兑换</button>
+			<a href=""><button class="z_subOrder">确认兑换</button></a>
+			
 		</div>
 	</div>
 </template>

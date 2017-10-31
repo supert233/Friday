@@ -10,72 +10,72 @@
 				</li>
 				<li>
 					<img src="../pages/index/assets/init2.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init3.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init4.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 			</ul>
 			<!--第二行-->
 			<ul>
 				<li>
 					<img src="../pages/index/assets/init1.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init2.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init3.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init4.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 			</ul>
 			<!--第三行-->
 			<ul>
 				<li>
 					<img src="../pages/index/assets/init1.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init2.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init3.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init4.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 			</ul>
 			<!--第四行-->
 			<ul>
 				<li>
 					<img src="../pages/index/assets/init1.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init2.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init3.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 				<li>
 					<img src="../pages/index/assets/init4.jpg" alt="" />
-					<button class="p_convert">立即兑换</button>
+					<router-link to="/z_score"><button class="p_convert">立即兑换</button></router-link>
 				</li>
 			</ul>
 		</div>

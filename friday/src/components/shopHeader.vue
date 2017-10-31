@@ -8,7 +8,7 @@
 				<!--选择城市-->
 				<div class="K_fromCity">
 					所在城市 :
-					<span>北京朝阳区</span>
+					<span>河南省郑州市中原区</span>
 				</div>
 				<!--登录信息-->
 				<ul class="k_msgOn">

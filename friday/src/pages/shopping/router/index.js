@@ -4,9 +4,13 @@ import Uhomes from '../../.././components/Uhomes'
 import Shopcon from "../../.././components/shopCon"
 import Ksuccess from "../../.././components/k_success"
 import S_myorder from '../../.././components/S_myorder'
+
+
+
 import Z_confirmOrder from '../../.././components/z_confirmOrder'
 import Z_payMethod from "../../.././components/z_payMethod"
 import Zdetail from "../../.././components/z_detail"
+
 
 Vue.use(Router)
 
@@ -30,6 +34,9 @@ routes: [
 	    	name:'z_detail',
 	    	component: Zdetail
     },
+
+    
+
       {
         	path:'/Z_payMethod',
      	name: 'Z_payMethod',
@@ -40,6 +47,7 @@ routes: [
      	name: 'Ksuccess',
       	component:Ksuccess
      },
+
      {
 	  path: '/uhomes',
       name: 'uhomes',
