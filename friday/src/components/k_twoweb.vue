@@ -40,7 +40,7 @@
 		<div class="p_content">
 			<ul class="v_binBan">
 				<li v-for="item in arrs3">
-					<router-link to="/Zdetail"><img :src="item.comphoto" alt="" /></router-link>
+					<router-link to="/Zdetail"><img class="imgs2" :src="item.comphoto" alt="" /></router-link>
 					<span class="v_bin1">{{item.comname}}</span>
 					<span class="v_bin2">此物只应天上有,人间哪的几回闻</span>
 					<div class="v_bin3">
@@ -161,6 +161,42 @@
 						
 						this.arrs3.push(allData[i]);
 						console.log(this.arrs3);
+					switch (this.onewebs){
+					case "新鲜水果":
+						this.bol1=true;
+						this.bol2=false;
+						this.bol3=false;
+						this.bol4=false;
+						this.bol5=true;
+						this.allwebs=this.arr1;
+						break;
+					case "生猛海鲜":
+						this.bol1=false;
+						this.bol2=true;
+						this.bol3=false;
+						this.bol4=false;
+						this.bol5=true;
+						this.allwebs=this.arr2;
+						break;
+					case "肉类家禽":
+						this.bol1=false;
+						this.bol2=false;
+						this.bol3=true;
+						this.bol4=false;
+						this.bol5=true;
+						this.allwebs=this.arr3;
+						break;
+					case "蛋奶素食":
+						this.bol1=false;
+						this.bol2=false;
+						this.bol3=false;
+						this.bol4=true;
+						this.bol5=true;
+						this.allwebs=this.arr4;
+						break;
+					default:
+						break;
+				}
 					}
 				}
 			});
@@ -295,5 +331,10 @@
 .green{
 	background-color: #498e3d;
 	color: white;
+}
+
+.imgs2{
+	width: 302px;
+	height: 304px;
 }
 </style>

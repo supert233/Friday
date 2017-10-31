@@ -62,6 +62,11 @@ export default new Router({
 	    	component: Z_score
     },
     {
+	    	path:'/Ktwoweb',
+	    	name:'K_twoweb',
+	    	component: K_twoweb
+    },
+    {
 	    	path:'/z_dirSupply',
 	    	name:'Z_dirSupply',
 	    	component: Z_dirSupply
