@@ -23,7 +23,7 @@
 			<span>二级分类 : </span>
 			<ul>
 				<li :class="{'green':bol5}">全部</li>
-				<li v-for="item in allweb">{{item}}</li>				
+				<li v-for="item in allwebs">{{item}}</li>				
 			</ul>
 		</div>
 		<div class="k_select">
@@ -61,7 +61,7 @@
 			return{
 				twowebs:'',
 				onewebs:'',
-				allwebs:'',
+				allwebs:[],
 				arrs1:[],
 				arrs2:[],
 				arrs3:[],
@@ -70,7 +70,11 @@
 				bol3:false,
 				bol4:false,
 				bol5:false,
-				
+				arr1:["时令水果","进口水果","沙拉拼盘","水果礼盒"],
+				arr2:["绿叶菜","茄果类","根茎类","菌菇类","蔬菜沙拉","蔬菜礼蓝"],
+				arr3:["牛肉","羊肉","鸡鸭肉","淡水鱼"],
+				arr4:["海鲜礼盒","生猛海鲜","鱼、虾","蟹、贝"],
+				arrs:[]
 			}
 		},
 		methods:{
@@ -78,7 +82,7 @@
 				var a = e.target.innerText;
 				//console.log(this.arrs1);
 				var s = this.arrs1;				
-				for (var i = 0; i < s.length-1; i++) {
+				for (var i = 0; i < s.length; i++) {
 //					console.log(s[i])
 					if (a == s[i].comtype) {					
 						this.arrs2.push(s[i]);
@@ -97,6 +101,7 @@
 						this.bol3=false;
 						this.bol4=false;
 						this.bol5=true;
+						this.allwebs=this.arr1;
 						break;
 					case "生猛海鲜":
 						this.bol1=false;
@@ -104,6 +109,7 @@
 						this.bol3=false;
 						this.bol4=false;
 						this.bol5=true;
+						this.allwebs=this.arr2;
 						break;
 					case "肉类家禽":
 						this.bol1=false;
@@ -111,6 +117,7 @@
 						this.bol3=true;
 						this.bol4=false;
 						this.bol5=true;
+						this.allwebs=this.arr3;
 						break;
 					case "蛋奶素食":
 						this.bol1=false;
@@ -118,6 +125,7 @@
 						this.bol3=false;
 						this.bol4=true;
 						this.bol5=true;
+						this.allwebs=this.arr4;
 						break;
 					default:
 						break;
@@ -142,12 +150,21 @@
 			this.twowebs = this.$store.state.twoweb;
 			this.onewebs = this.$store.state.oneweb;
 			this.allwebs = this.$store.state.allweb;
-			
+//			console.log(this.twowebs);
 			this.$http.post('api/user/indexCons',{}, {emulateJSON: true}).then(function(res){
 				var allData = res.body;
 //				console.log(allData)
 				this.arrs1 = allData;
-			})
+				for(var i = 0; i < allData.length; i++){	
+					
+					if(this.onewebs == allData[i].comtype){
+						
+						this.arrs3.push(allData[i]);
+						console.log(this.arrs3);
+					}
+				}
+			});
+			
 		}
 		
 	}
