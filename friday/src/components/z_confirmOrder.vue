@@ -189,7 +189,7 @@
 				<div class="transBox"></div>
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td @click="time($event)" :class="{'bgcolor':bgcolorbol}">10:00-13:00</td>
+						<td @click="time($event)">10:00-13:00</td>
 						<td @click="time($event)" >11:00-14:00</td>
 						<td @click="time($event)" >12:00-15:00</td>
 						<td @click="time($event)">13:00-16:00</td>
@@ -370,9 +370,6 @@
 		padding: 0;
 		margin: 0;
 	}
-	.bgcolor{
-		background-color: red;
-	}
 	/*送达时间*/
 	.z_arriveTime{
 		border-top:1px solid #e9e9e9;
@@ -508,7 +505,7 @@
 		border-bottom: 1px solid #e9e9e9;
 		margin-bottom: 20px;
 		padding-bottom: 26px;
-		display: none;
+		/*display: none;*/
 	}
 	.havedInf .haveDown,.haveUp{
 		display: inline-block;
@@ -565,7 +562,7 @@
 	}
 	/*没地址的收货人信息*/
 	.z_firstShow{
-		/*display: none;*/
+		display: none;
 	}
 	.z_firstShow span{
 		display: inline-block;
